@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>About | Chloe McFarlane</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -16,6 +16,12 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+
+        <!-- Stylesheet link -->
+        <link
+         rel="stylesheet"
+          href="style-index.css" 
+          />
     </head> 
 
     <body>
@@ -38,15 +44,14 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#experience">Experience</a>
+                                <a class="nav-link" href="#headshot&resume">Resume</a>
                             </li>
-                            <li class="nav-item"></li>
-                                <a class="nav-link" href="#resume">Resume</a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="./photos.html">Photos</a>
                             </li>
-                            <li class="nav-item"></li>
-                                <a class="nav-link" href="#gallery">Gallery</a>
-                            </li>
-                            <li class="nav-item"></li>
+
+                            <li class="nav-item">
                                 <a class="nav-link" href="#contact">Contact</a>
                             </li>
                         </ul>
@@ -171,9 +176,66 @@
                     </div>
                 </div>
 
+                <!-- GALLERY DESIGN -->
+                <section class="gallery-links">
+                    <header id="gallery"> 
+                        <h3> 
+                        Learn More 
+                        </h3>
+                    </header>
+                    <!-- Allow each item to translate to a bigger size on hover -->
+
+                    <!-- resume navigation -->
+                    <div id="resume-nav-container">
+                            <a id="resume-nav-container-link" href="#headshot&resume">
+                                <img src="#" alt="description">
+                            </a>
+                            <div class ="gallery-links-text">
+                                <h5>
+                                    Headshots & Resume
+                                </h5>
+                                <p>
+                                    Wanna see more? Headshots by Carrey Shieffeild. 
+                                </p>
+                            </div>
+                    </div>
+
+                    <!-- photos navigation -->
+                    <div id="photos-nav-container">
+                        <a id="photos-nav-container-link" href="#photos">
+                            <img src="#" alt="description">
+                        </a>
+                        <div class ="gallery-links-text">
+                            <h5>
+                                Photos
+                            </h5>
+                            <p>
+                                See me in action. Check out production photos here. 
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+
+                    <div id="conatact-nav-container"></div>
+                        <a id="conatact-nav-container-link" href="#contact">
+                            <img src="#" alt="contact image">
+                            <!-- add approrpiate image here for contact -->
+                        </a>
+                        <div class ="gallery-links-text">
+                            <h5>
+                                Get Connected
+                            </h5>
+                            <p>
+                                Want to get in touch directly? Let's connect!
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                
                 <!-- add a mini gallery (rounded borders on images) each will have a link ontop that will lead to headshots, resume, or production images -->
                 
-                <!-- NOTES FOR FUTUTRE... add a feed at the bottom of the gallery section. this way you can showcase  -->
+                <!-- NOTES FOR FUTUTRE... add a feed at the bottom of the gallery section. this way you can showcase socials-->
                  <!-- ALSO NOTES FOR FUTURE. MAKE ALL ONE PAGE THAT CAN BE NAVIGATED WITH TABS PRODUCTION/MODELING/FILMTV -->
 
              </div>
@@ -181,6 +243,14 @@
 
         </main>
         <footer>
+            <!-- social media links -->
+            <ul id="socials-links">
+                <!-- add ALL links  -->
+                <li><a href="https://www.instagram.com/chloemcfarlane_/">Instagram</a></li>
+                <li><a href="#">TikTok</a></li>
+                <li><a href="https://www.imdb.com/name/nm1234567/">IMDB</a></li>
+                <li><a href="#">Actor's Acess</a></li>
+            </ul>
             <!-- place footer here -->
         </footer>
         <!-- Bootstrap JavaScript Libraries -->

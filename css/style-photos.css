@@ -178,7 +178,7 @@
   
   background-image: url('image.jpg');
   background-repeat: repeat-x; /* This is the correct way to repeat horizontally */
-  background-repeat-y: initial;
+  /* background-repeat-y is not a valid property and has been removed */
   background-attachment: initial;
   background-origin: initial;
   background-clip: initial;

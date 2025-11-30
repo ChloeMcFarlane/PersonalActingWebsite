@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.xanh-mono-regular {
+    font-family: "Xanh Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .xanh-mono-regular-italic {
+    font-family: "Xanh Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  
+.source-sans-3 {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Replace <weight> with a valid number */
+    font-style: normal;
+  }
+
+body{
+    font-family: "Source Sans 3", sans-serif;
+    background-color: #faeCD0;
+    color: #c6302c;
+    line-height: 1.6;
+}
+
+.navbar-brand{
+    font-family: "Xanh Mono", monospace;
+    color: #c6302c;
+
+}
+
+.navbar-brand:hover{
+    color: #8b1a16;
+}
+
+
+.nav-link{
+    font-family: "Source Sans 3", sans-serif;
+    color: #c6302c;
+    padding-bottom: 0%;
+    padding-top: 0%;
+}
+
+.nav-link:hover{
+    color: #8b1a16;
+}
+
+.nav-item {
+    position: relative; /* Position relative for the underline effect */
+}
+
+.nav-item::after {
+    content: ''; /* Create a pseudo-element for the underline */
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Position it at the bottom */
+    width: 100%; /* Full width */
+    height: 2px; /* Height of the underline */
+    background-color: #8b1a16; /* Underline color */
+    transform: scaleX(0); /* Initially scale to 0 */
+    transition: transform 300ms ease; /* Transition effect */
+}
+
+.nav-item:hover::after {
+    transform: scaleX(.75); /* Scale to full width on hover */
+}
+
+.hero\&img-wrapper{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+}
+
+.hero\&img-wrapper img {
+    width: 50vw; /* Half of the viewport width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.hero\&img-wrapper .hero-text {
+    font-size: 32px;
+    align-self: flex-end; /* Align text to the bottom */
+    margin-left: 20px; /* Space between image and text */
+    text-align: left; 
+}
+
+.hero{
+    text-align: left;
+
+}
+
+.container-md-hero-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align items vertically centered */
+    padding-top: 60vh;
+}
+
+.container-md-hero-info a{
+    padding-right: 25vh;
+    text-align: left;
+    justify-content: space-between; /* Align items vertically */
+}
+
+.container-md-hero-info svg{
+    fill: #c6302c;
+
+}
+
+.title {
+    font-family: "Xanh Mono", monospace;
+    size:109px;
+    font-size: 69px; /* Large font size */
+    text-align: center; /* Center the text */
+    position: absolute; /* Change to absolute positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the element's own size */
+    z-index: 10; /* Ensure it is above other content */
+}
+
+.title h1{
+    font-size: 69px;
+
+}
+
+/* ABOUT SECTION */
+
+.about{
+    display: flex;
+    flex-direction: row;
+    padding: 10vh;
+}
+
+
+.about section{
+    padding: 10vh;
+}
+
+.about section

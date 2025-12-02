@@ -26,6 +26,9 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Xanh+Mono:ital@0;1&display=swap');
         </style>
+
+        <!-- JS link -->
+         <script src="/js/index.js" defer></script>
     </head> 
 
     <body>
@@ -112,48 +115,54 @@
                 <!-- Accent text for the opening -->
 
                 <section  class="container-md-about-intro">
-                    <header id="about"> Hello and &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; welcome.</header>
+                    <header id="about"> Hello and &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; welcome.</header>
                     <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis corrupti fuga dignissimos facilis id, architecto perspiciatis ratione odit in totam aliquid consectetur, nobis voluptatum minima nostrum deserunt explicabo porro suscipit.</p>
                 </section>
              </div>
 
-            <div class="testimonials-scroll">
-                <!-- Scroll testimonial section -->
+             <!-- TESTIMONIAL SECTION -->
 
+             <div class="testimonials-scroll">
                 <div class="testimonial-item">
-                    <h5>"Chloe is an exceptional talent with a captivating presence."</h5>
-                    <p>- Director Name</p>
-
-                    <!-- Add this to all  -->
-
-                    <div class="star-rating">
-                        <!-- star icons here -->
-                    <img src="./src/216411_star_icon.svg" alt="quote icon"> <img src="./src/216411_star_icon.svg" alt="quote icon"> <img src="./src/216411_star_icon.svg" alt="quote icon"> <img src="./src/216411_star_icon.svg" alt="quote icon"> <img src="./src/216411_star_icon.svg" alt="quote icon"> 
-                    </div>
-                    
+                  <p class="testimonial-quote" id="quote"></p>
+                  
+                  <div class="star-frame" aria-label="5 star rating">
+                    <svg class="star-svg" viewBox="0 0 48 48" aria-hidden="true">
+                      <path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55L11.65 44Z" fill="#ECCACA"/>
+                    </svg>
+                    <svg class="star-svg" viewBox="0 0 48 48" aria-hidden="true">
+                      <path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55L11.65 44Z" fill="#ECCACA"/>
+                    </svg>
+                    <svg class="star-svg" viewBox="0 0 48 48" aria-hidden="true">
+                      <path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55L11.65 44Z" fill="#ECCACA"/>
+                    </svg>
+                    <svg class="star-svg" viewBox="0 0 48 48" aria-hidden="true">
+                      <path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55L11.65 44Z" fill="#ECCACA"/>
+                    </svg>
+                    <svg class="star-svg" viewBox="0 0 48 48" aria-hidden="true">
+                      <path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55L11.65 44Z" fill="#ECCACA"/>
+                    </svg>
+                  </div>
+                  
+                  <p class="testimonial-company" id="company"></p>
+                  
+                  <div class="scroll-control">
+                    <button id="prev" class="arrow-btn" aria-label="Previous testimonial">
+                      <svg class="arrow-svg" viewBox="0 0 32 32">
+                        <path d="M25.3333 16H6.66667M6.66667 16L16 25.3333M6.66667 16L16 6.66667" stroke="#ECCACA" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" fill="none"/>
+                      </svg>
+                    </button>
+                    <button id="next" class="arrow-btn" aria-label="Next testimonial">
+                      <svg class="arrow-svg" viewBox="0 0 32 32">
+                        <path d="M6.66667 16H25.3333M25.3333 16L16 6.66667M25.3333 16L16 25.3333" stroke="#ECCACA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" fill="none"/>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
+              </div>
 
-                <div class="testimonial-item">
-                    <h5>"Chloe is an exceptional talent with a captivating presence."</h5>
-                    <p>- Director Name</p>
-                </div>
 
-                <div class="testimonial-item">
-                    <h5>"Chloe is an exceptional talent with a captivating presence."</h5>
-                    <p>- Director Name</p>
-                </div>
-
-                <div class="testimonial-item">
-                    <h5>"Chloe is an exceptional talent with a captivating presence."</h5>
-                    <p>- Director Name</p>
-                </div>
-
-                <div class="testimonials-arrows">
-                    <!-- input arrows here -->
-                    <button class="prev-button">Previous</button>
-                    <button class="next-button">Next</button>
-                </div>
-            </div>
+              <!-- TESTIMONOAL SECITON END -->
 
                 <!--  what's next section with the image on the opposite side. Add button with link to tickets-->
                  <div class="projects"> 

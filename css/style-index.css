@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+/* FONT */
+
 .xanh-mono-regular {
     font-family: "Xanh Mono", monospace;
     font-weight: 400;
@@ -24,9 +26,96 @@
     font-style: normal;
   }
 
+  /* ANIMATIONS */
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes slideInStagger {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUpSlow {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
 body{
     font-family: "Source Sans 3", sans-serif;
-    background-color: #faeCD0;
+    background-color: #ECEAE2;
     color: #c6302c;
 }
 
@@ -73,82 +162,144 @@ body{
     transform: scaleX(.75); /* Scale to full width on hover */
 }
 
-.hero\&img-wrapper{
-    display: flex;
-    flex-direction: row;
-    margin: 20px 0;
+.hero {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  background-color: #eceae2;
+  max-width: 1728px;
+  margin: 0 auto;
 }
 
-.hero\&img-wrapper img {
-    width: 50vw; /* Half of the viewport width */
-    height: auto; /* Maintain aspect ratio */
+.hero-image {
+  width: 45%;
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.8s ease-out;
+  transition: transform 0.1s ease-out;
 }
 
-.hero\&img-wrapper .hero-text {
-    font-size: 32px;
-    align-self: flex-end; /* Align text to the bottom */
-    margin-left: 20px; /* Space between image and text */
-    text-align: left; 
+.headshot {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
-.hero{
-    text-align: left;
-
+.hero-content {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+  padding: 4rem 2rem;
+  gap: 1rem;
 }
 
-.container-md-hero-info {
-    display: flex;
-    flex-direction: row; /* Change to row to align items on the same line */
-    align-items: flex-end; /* Align items to the bottom */
-    padding-top: 0; /* Remove top padding */
-    justify-content: space-between; /* Space items evenly */
+.greeting {
+  font-size: clamp(20px, 3.5vw, 59px);
+  font-weight: 500;
+  color: #c6302c;
+  text-align: center;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
 }
 
-.container-md-hero-info a {
-    padding-right: 25vh;
-    text-align: left;
+.name {
+  font-family: 'Xanh Mono', monospace;
+  font-style: italic;
+  font-size: clamp(28px, 5.5vw, 111px);
+  color: #e6a8c8;
+  text-align: center;
+  line-height: 1.1;
+  margin: 0;
+  animation: slideUpSlow 1.2s ease-out 0.6s backwards;
 }
 
-.container-md-hero-info svg {
-    fill: #c6302c;
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 2vw, 2.25rem);
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
 }
 
-.title {
-    font-family: "Xanh Mono", monospace;
-    font-size: 69px; /* Large font size */
-    text-align: center; /* Center the text */
-    position: absolute; /* Change to absolute positioning */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for the element's own size */
-    z-index: 10; /* Ensure it is above other content */
-    white-space: nowrap; /* Prevent text from wrapping to a new line */
+.role-item{
+  font-size: clamp(14px, 2vw, 36px);
+  color: #c6302c;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  line-height: normal;
+  animation: slideInStagger 0.6s ease-out both;
+  transition: all 0.3s ease;
 }
 
-.title h1 {
-    font-size: 109px;
+.role-item:nth-child(1) {
+  animation-delay: 0.9s;
 }
+
+.role-item:nth-child(2) {
+  animation-delay: 1.1s;
+}
+
+.role-item:nth-child(3) {
+  animation-delay: 1.3s;
+}
+
+.role-item:hover {
+  transform: translateY(-2px) scale(1.1);
+}
+
+.role:hover {
+  transform: scale(2);
+  cursor: default;
+}
+
 
 /* ABOUT SECTION */
 
-.about{
-    display: flex;
-    flex-direction: row;
-    padding: 20vh;
+.about {
+  display: flex;
+  flex-direction: row;
+  padding: 10vh;
+  align-items: flex-start;
 }
 
-
-.about section{
-    padding: 10vh;
-    padding-left:10vw;
-    padding-right:10vw;
+.about img {
+  width: 65%;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.about section header{
-    font-family: "Xanh Mono", monospace;
-    font-weight: 750;
-    font-size: 32px;
-    padding-bottom: 10px;
+.about img.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about section header {
+  font-family: "Xanh Mono", monospace;
+  font-weight: 750;
+  font-size: 32px;
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+.about section p{
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 24px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.headshot-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 }
 
 /* TESTIMONIALS */
@@ -287,7 +438,56 @@ body{
     height: 100%;
   }
 
-  /* @media (max-width: 768px) {
+    /* Responsive Design */
+
+  /* 
+  
+  HERO SECTION RESPONSIVE 
+
+  @media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding: 2rem 1rem;
+  }
+
+  .roles {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-image {
+    width: 42%;
+  }
+
+  .hero-content {
+    width: 58%;
+  }
+}
+
+@media (min-width: 1025px) {
+  .hero-image {
+    width: 48%;
+  }
+
+  .hero-content {
+    width: 52%;
+  }
+}
+  
+  TESTIMONIALS SECTION RESPONSIVE
+  
+  @media (max-width: 768px) {
     .scroll-control {
       gap: 40px;
     }

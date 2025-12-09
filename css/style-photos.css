@@ -1,3 +1,178 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p{
+margin-bottom: 0;
+}
+
+/* FONT */
+
+.xanh-mono-regular {
+  font-family: "Xanh Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.xanh-mono-regular-italic {
+  font-family: "Xanh Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+.source-sans-3 {
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Replace <weight> with a valid number */
+  font-style: normal;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slideInStagger {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpSlow {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+body{
+  font-family: "Source Sans 3", sans-serif;
+  background-color: #ECEAE2;
+  color: #3E2723;
+}
+
+/* Removed empty ruleset for img */
+img {
+border-radius: 8px; /* Adjust the value as needed for roundness */
+}
+
+.navbar-brand{
+  font-family: "Xanh Mono", monospace;
+  font-size: 32px;
+  color: #3E2723;
+
+}
+
+.navbar-brand:hover{
+  color: #3E2723;
+}
+
+
+.nav-link{
+  font-family: "Source Sans 3", sans-serif;
+  color: #3E2723;
+  padding-bottom: 0%;
+  padding-top: 7%;
+}
+
+.nav-link:hover{
+  color: #8b1a16;
+}
+
+.nav-item {
+  position: relative; /* Position relative for the underline effect */
+}
+
+.nav-item::after {
+  content: ''; /* Create a pseudo-element for the underline */
+  position: absolute;
+  left: 0;
+  bottom: 0; /* Position it at the bottom */
+  width: 100%; /* Full width */
+  height: 2px; /* Height of the underline */
+  background-color: #3E2723; /* Underline color */
+  transform: scaleX(0); /* Initially scale to 0 */
+  transition: transform 300ms ease; /* Transition effect */
+}
+
+.nav-item:hover::after {
+  transform: scaleX(.75); /* Scale to full width on hover */
+
+}
+
+
 .desktop_7 * {
   font-family: Nunito, sans-serif;
 }
@@ -29,6 +204,7 @@
   margin-bottom: 0px;
   margin-left: auto;
   justify-content: flex-start;
+  background-color: #eceae2;
 }
 
 .desktop_7 .responsive-container-block.bigContainer {
@@ -47,7 +223,6 @@
   padding-left: 0px;
   margin-top: 80px;
   margin-right: auto;
-  margin-bottom: 50px;
   margin-left: auto;
 }
 
@@ -63,7 +238,7 @@
   font-weight: 400;
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  border-bottom-color: #03a9f4;
+  border-bottom-color: #3E2723;
 }
 
 .desktop_7 .text-blk.list {
@@ -182,7 +357,6 @@
   background-attachment: initial;
   background-origin: initial;
   background-clip: initial;
-  background-color: white;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -355,6 +529,81 @@
   margin-bottom: 0px;
   margin-left: 0px;
 }
+
+
+footer {
+  color: #3E2723 !important;
+  text-align: center !important;
+  padding: 20px 0 !important;
+  font-size: 16px !important;
+  max-width: 100% !important;
+
+}
+
+footer {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#socials-links {
+  display: flex !important;
+  gap: 20px !important;
+  justify-content: center !important;
+}
+
+ul #socials-links {
+  display: flex !important; /* Aligns list items side by side */
+  padding: 0 !important; /* Removes default padding */
+  gap: 0px !important; /* Adds gap between each link */
+  text-decoration: none !important; /* Ensures no underline */
+  justify-content: center !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+#socials-links li {
+  list-style: none !important;
+  color: #3E2723 !important; /* Sets the color */
+  text-decoration: none !important; /* Ensures no underline for list items */
+}
+
+#socials-links li a {
+  color: #3E2723 !important; /* Sets the color for links */
+  text-decoration: none !important; /* Ensures no underline for links */
+  font-size: 18px !important;
+  transition: color 0.3s ease, text-decoration 0.3s ease !important; /* Smooth transition */
+}
+
+#socials-links li {
+  position: relative !important; /* Position relative for the underline effect */
+}
+
+#socials-links li a {
+  position: relative !important; /* Position relative for the underline effect */
+  text-decoration: none !important; /* Remove default underline */
+}
+
+#socials-links li a::after {
+  content: '' !important; /* Create a pseudo-element for the underline */
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important; /* Position it at the bottom */
+  width: 100% !important; /* Full width */
+  height: 2px !important; /* Height of the underline */
+  background-color: #3E2723 !important; /* Underline color */
+  transform: scaleX(0) !important; /* Initially scale to 0 */
+  transition: transform 300ms ease !important; /* Transition effect */
+}
+
+#socials-links li a:hover {
+  color: #3E2723 !important; /* Sets the color for links */
+  text-decoration: none !important; /* Ensure no underline for links */
+}
+
+#socials-links li a:hover::after {
+  transform: scaleX(1) !important; /* Scale to full width on hover */
+}
+
 
 @media (max-width: 1024px) {
   .desktop_7 .Container {

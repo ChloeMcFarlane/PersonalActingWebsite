@@ -1,23 +1,24 @@
 
 
 // SCROLL REVEAL FOR ABOUT IMAGE
-const aboutImg = document.querySelector('.about img');
+const aboutImg = document.querySelector('img');
 
 const revealOnScroll = () => {
-  if (aboutImg) {
-    const elementTop = aboutImg.getBoundingClientRect().top;
-    const elementBottom = aboutImg.getBoundingClientRect().bottom;
+  const images = document.querySelectorAll('img:not(.her-img)');
+  images.forEach((img) => {
+    const elementTop = img.getBoundingClientRect().top;
+    const elementBottom = img.getBoundingClientRect().bottom;
     const windowHeight = window.innerHeight;
-    
+
     // Reveal when element enters viewport
     if (elementTop < windowHeight * 0.85 && elementBottom > 0) {
-      aboutImg.classList.add('revealed');
+      img.classList.add('revealed');
     } 
     // Hide when element leaves viewport
     else {
-      aboutImg.classList.remove('revealed');
+      img.classList.remove('revealed');
     }
-  }
+  });
 };
 
 window.addEventListener('scroll', revealOnScroll);

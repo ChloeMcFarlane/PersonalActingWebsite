@@ -16,13 +16,6 @@ margin-bottom: 0;
   font-style: normal;
 }
 
-.xanh-mono-regular-italic {
-  font-family: "Xanh Mono", monospace;
-  font-weight: 400;
-  font-style: italic;
-}
-
-
 .source-sans-3 {
   font-family: "Source Sans 3", sans-serif;
   font-optical-sizing: auto;
@@ -128,6 +121,10 @@ img {
 border-radius: 8px; /* Adjust the value as needed for roundness */
 }
 
+p{
+  font-family: "Source Sans 3", sans-serif;
+}
+
 .navbar-brand{
   font-family: "Xanh Mono", monospace;
   font-size: 32px;
@@ -172,12 +169,8 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
 
 }
 
-
-.desktop_7 * {
-  font-family: Nunito, sans-serif;
-}
-
 .desktop_7 .text-blk {
+  font-family: "Xanh Mono", monospace;
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
@@ -243,6 +236,7 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
 
 .desktop_7 .text-blk.list {
   font-size: 20px;
+  font-family: "Source Sans 3", sans-serif;
   line-height: 34px;
   cursor: pointer;
 }
@@ -269,17 +263,11 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
 }
 
 .desktop_7 .squareImg {
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  border-bottom-left-radius: 6px;
+  border-radius: 20px; /* Consolidated border-radius properties */
   width: 225px;
-  height: 225px;
-  margin-top: 0px;
-  margin-right: auto;
-  margin-bottom: 20px;
-  margin-left: auto;
+  margin: 0 auto 20px; /* Consolidated margin properties */
 }
+
 
 .desktop_7 .responsive-container-block.imageContainer {
   flex-direction: row;
@@ -332,16 +320,39 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
   display: none;
 }
 
+/* BUTTON */
+
 .desktop_7 .btn-box {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
+  color: #eceae2;
+}
+
+.btn{
+  --bs-btn-border-width: 0px; 
+  --bs-btn-color: #eceae2;
+  /* REMOVES WEIRD CLICKING FUNCTION */
 }
 
 .desktop_7 .project:hover .btn-box {
   display: block;
+  border: 2px solid #eceae2;
+  border-radius: 4px;
+  color:#eceae2
+}
+
+.desktop_7 .project:hover .btn-box:active{
+  background-color: #3E2723;
+  border: 2px solid #3E2723;
+  border-radius: 4px;
+  color: #eceae2;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  transition-property: all;
 }
 
 .desktop_7 .imageContainer {
@@ -378,16 +389,7 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
 
 .desktop_7 .overlay {
   position: fixed;
-  background-image: initial;
-  background-position-x: initial;
-  background-position-y: initial;
-  background-size: initial;
-  background-repeat-x: initial;
-  background-repeat-y: initial;
-  background-attachment: initial;
-  background-origin: initial;
-  background-clip: initial;
-  background-color: rgba(71, 69, 69, 0.7);
+  background-color: rgba(0, 0, 0, 0.8); /* Changed to a darker background */
   height: 100%;
   width: 100%;
   max-height: 100%;
@@ -395,6 +397,7 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
   left: 0px;
   z-index: 100;
   display: none;
+  animation: fadeIn 300ms ease; /* Added fade-in animation */
 }
 
 .desktop_7 .overlay-inner {
@@ -403,26 +406,17 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
   bottom: 0px;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: initial;
-  background-position-x: initial;
-  background-position-y: initial;
-  background-size: initial;
-  background-repeat-x: initial;
-  background-repeat-y: initial;
-  background-attachment: initial;
-  background-origin: initial;
-  background-clip: initial;
-  background-color: white;
-  padding-top: 25px;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
+  background-color: transparent; /* Removed white background */
+  padding: 0; /* Removed padding to eliminate borders */
   position: relative;
   opacity: 1;
   width: fit-content;
-  max-width: 50%;
-  max-height: 85%;
+  max-width: 80%; /* Increased max-width for larger image */
+  max-height: 90%; /* Increased max-height for larger image */
+  animation: fadeInUp 300ms ease; /* Added fade-in-up animation */
 }
+
+
 
 .desktop_7 .close {
   position: absolute;
@@ -530,19 +524,16 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
   margin-left: 0px;
 }
 
-
+/* FOOTER */
 footer {
   color: #3E2723 !important;
   text-align: center !important;
   padding: 20px 0 !important;
   font-size: 16px !important;
   max-width: 100% !important;
-
-}
-
-footer {
   display: flex !important;
   flex-direction: column !important;
+  margin-top: 40px;
 }
 
 #socials-links {
@@ -610,11 +601,6 @@ ul #socials-links {
     width: 690px;
   }
 
-  .desktop_7 .squareImg {
-    width: 170px;
-    height: 170px;
-  }
-
   .desktop_7 .squareImg.one {
     padding-top: 10px;
     padding-right: 10px;
@@ -678,8 +664,6 @@ ul #socials-links {
 
 @media (max-width: 768px) {
   .desktop_7 .squareImg {
-    width: 225px;
-    height: 225px;
   }
 
   .desktop_7 .responsive-container-block.Container {

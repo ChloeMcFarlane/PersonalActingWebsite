@@ -1,267 +1,120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Photos | Chloe McFarlane</title>
-        <!-- Required meta tags -->
-          <meta charset="utf-8" />
-          <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1, shrink-to-fit=no"
-          />
-          <!-- Referencel link bellow!! -->
-          <!-- https://workik.com/best-gallery-designs-for-websites-with-html-css-and-javascript -->
-          <!-- https://www.melissamahoney.me/media-gallery -->
-          <!-- Bootstrap CSS v5.2.1 -->
+<head>
+  <title>Gallery | Chloe McFarlane</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-          <link
-              href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-              rel="stylesheet"
-              integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-              crossorigin="anonymous"
-          />
+  <!-- LINKS -->
 
-          <!-- Stylesheet link -->
-          <link
-          rel="stylesheet"
-            href="/css/style-photos.css" 
-            />
+  <link rel="stylesheet" href="/css/style-photos.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet">
 
-            <style>
-              @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Xanh+Mono:ital@0;1&display=swap');
-            </style>
+   <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+      />
 
-          <!--  jQuery link -->
-          <script 
-          src="https://code.jquery.com/jquery-3.6.0.min.js"
-          ></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <div class="container-fluid">
 
-          <!-- Javascript link -->
+      <a class="navbar-brand" href="#">Chloe McFarlane</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ">
+                  <li class="nav-item">
+                      <a class="nav-link" href="/html/index.html">About</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link" href="path/to/src/ChloeMcFarlaneResume.pdf" target="_blank">Resume</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link" href="/html/photos.html">Photos</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link" href="/html/contact.html">Contact</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-container">
+    <div class="content-wrapper">
+      <h1 class="gallery-title">Gallery</h1>
+      
+      <!-- Filter Buttons -->
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="one">THEATRE</button>
+        <button class="filter-btn" data-filter="two">PRINT</button>
+        <button class="filter-btn" data-filter="three">DIGITALS</button>
+        <button class="filter-btn" data-filter="four">STILLS</button>
+      </div>
+      
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Gallery items will be dynamically inserted here -->
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <ul id="socials-links">
+          <li><a href="https://www.instagram.com/chloemcfarlane_/" class="social-link">Instagram</a></li>
+          <li><a href="#" class="social-link">TikTok</a></li>
+          <li><a href="https://www.imdb.com/name/nm1234567/" class="social-link">IMDB</a></li>
+          <li><a href="#" class="social-link">Actor's Access</a></li>
+        </ul>
+        <div class="copyright">
+          <p>&copy; 2024 Chloe McFarlane. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Image Overlay Modal -->
+  <div id="imageOverlay" class="overlay">
+    <div class="overlay-inner">
+      <button class="close-btn" aria-label="Close overlay">Close X</button>
+      <button class="nav-btn prev-btn" aria-label="Previous image">‹</button>
+      <button class="nav-btn next-btn" aria-label="Next image">›</button>
+      <div class="image-container">
+        <img id="overlayImage" src="" alt="" class="overlay-image">
+      </div>
+    </div>
+  </div>
+
+        <script src="/js/photos.js"></script>
+          <!-- Bootstrap JavaScript Libraries -->
           <script
-          src="/js/photos.js"
-          ></script>
-        </head>
+          src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+          integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+          crossorigin="anonymous"
+      ></script>
 
-        <body>
-
-        <header>
-          <!-- CREDIT TO: https://workik.com/best-gallery-designs-for-websites-with-html-css-and-javascript -->
-          <!-- each component with pop out at you lihe the following: https://www.maybedesignstudio.com -->
-          <nav class="navbar navbar-expand-lg navbar-light ">
-              <div class="container-fluid">
-
-              <a class="navbar-brand" href="#">Chloe McFarlane</a>
-
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-                      <ul class="navbar-nav ">
-                          <li class="nav-item">
-                              <a class="nav-link" href="/html/index.html">About</a>
-                          </li>
-
-                          <li class="nav-item">
-                              <a 
-                              class="nav-link" 
-                              href="src/ChloeMcFarlaneResume6.1.25.pdf" 
-                              target="_blank"
-                              >
-                              Resume</a>
-                          </li>
-
-                          <li class="nav-item">
-                              <a class="nav-link" href="/html/photos.html">Photos</a>
-                          </li>
-
-                          <li class="nav-item">
-                              <a class="nav-link" href="/html/contact.html">Contact</a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </nav>
-      </header>
-
-         <!-- Image focus Functionality -->
-         <div class="desktop_7" unique-script-id="w-w-dm-id">
-          <div class="responsive-container-block bigContainer">
-            <div class="responsive-container-block Container">
-              <p class="text-blk headingText">
-                Gallery
-              </p>
-              <!-- GALLER CONTENT BEGINS -->
-              <div class="responsive-container-block optionsContainer">
-                <p class="text-blk list all active" data-filter="all">
-                  ALL
-                </p>
-                <p class="text-blk list" data-filter="one">
-                  THEATRE
-                </p>
-                <p class="text-blk list" data-filter="two">
-                  PRINT
-                </p>
-                <p class="text-blk list" data-filter="three">
-                  DIGITALS
-                </p>
-                <p class="text-blk list" data-filter="four">
-                  STILLS
-                </p>
-              </div>
-              <div class="responsive-container-block imageContainer">
-                <!-- Nature images (filter: one) -->
-                <div class="project">
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <button class="close">Close X</button>
-                      <div class="hdImgs">
-                        <img alt="" class="againImg" src="/src/Headshot1.jpg">
-                      </div>
-                    </div>
-                  </div>
-                  <img class="squareImg one" src="/src/Headshot2.jpg">
-                  <div class="btn-box">
-                    <button class="btn">View</button>
-                  </div>
-                </div>
-                
-                <div class="project">
-                  <img class="squareImg one" src="/src/Headshot3.jpg">
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <button class="close">Close X</button>
-                      <div class="hdImgs">
-                        <img alt="" class="againImg" src="/src/Headshot4.jpg">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="btn-box">
-                    <button class="btn">View</button>
-                  </div>
-                </div>
-              
-                <!-- Urban images (filter: two) -->
-                <div class="project">
-                  <img class="squareImg two" src="/src/Headshot5.jpg">
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <button class="close">Close X</button>
-                      <div class="hdImgs">
-                        <img class="squareImg two" src="/src/Headshot6.jpg">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="btn-box">
-                    <button class="btn">View</button>
-                  </div>
-                </div>
-              
-                <div class="project">
-                  <img class="squareImg two" src="/src/Headshot7.jpg">
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <button class="close">Close X</button>
-                      <div class="hdImgs">
-                        <img alt="" class="againImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/d77.png">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="btn-box">
-                    <button class="btn">View</button>
-                  </div>
-                </div>
-              
-                <!-- Portrait images (filter: three) -->
-                <div class="project">
-                  <img class="squareImg three" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/d73.png">
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <button class="close">Close X</button>
-                      <div class="hdImgs">
-                        <img alt="" class="againImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/d73.png">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="btn-box">
-                    <button class="btn">View</button>
-                  </div>
-                </div>
-              
-                <div class="project">
-                  <img class="squareImg three" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/d78.png">
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <button class="close">Close X</button>
-                      <div class="hdImgs">
-                        <img alt="" class="againImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/d78.png">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="btn-box">
-                    <button class="btn">View</button>
-                  </div>
-                </div>
-              
-                <!-- Abstract images (filter: four) -->
-                <div class="project">
-                  <img class="squareImg four" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/d74.png">
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <button class="close">Close X</button>
-                      <div class="hdImgs">
-                        <img alt="" class="againImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/d74.png">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="btn-box">
-                    <button class="btn">View</button>
-                  </div>
-                </div>
-              
-                <div class="project">
-                  <img class="squareImg four" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/d75.png">
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <button class="close">Close X</button>
-                      <div class="hdImgs">
-                        <img alt="" class="againImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/d75.png">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="btn-box">
-                    <button class="btn">View</button>
-                  </div>
-                </div>
-              </div>
-
-              <footer>
-                <!-- social media links -->
-                <ul id="socials-links">
-                    <!-- add ALL links  -->
-                    <li><a href="https://www.instagram.com/chloemcfarlane_/">Instagram</a></li>
-                    <li><a href="#">TikTok</a></li>
-                    <li><a href="https://www.imdb.com/name/nm1234567/">IMDB</a></li>
-                    <li><a href="#">Actor's Access</a></li>
-                </ul>
-                <!-- place copyright here -->
-                <div class="container text-center mt-4 mb-4">
-                    <p>&copy; 2024 Chloe McFarlane. All rights reserved.</p>
-                </div>
-    
-            </footer>
-
-            <!-- Bootstrap JavaScript Libraries -->
-            <script
-                src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-                integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-                crossorigin="anonymous"
-            ></script>
-    
-            <script
-                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-                integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-                crossorigin="anonymous"
-            ></script>
-        </body>
-    </html>
+      <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+          integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+          crossorigin="anonymous"
+      ></script>
+</body>
+</html>

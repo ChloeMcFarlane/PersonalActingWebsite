@@ -172,6 +172,13 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
 
 }
 
+.navbar-toggler{
+  border-color: #3E2723;
+  font-size: 18px;
+  line-height: 0%;
+  color: #3E2723;
+}
+
 .hero {
   display: flex;
   flex-direction: row;
@@ -679,36 +686,40 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
 
 
 
-    /* Responsive Design */
+  /* Responsive Design */
 
-  /* 
   
-  HERO SECTION RESPONSIVE 
+  /* HERO SECTION RESPONSIVE  */
 
   @media (max-width: 768px) {
   .hero {
     flex-direction: column;
   }
-
   .hero-image {
+    width: 65%; /* Adjusted width for smaller size */
+    margin: 0 auto; /* Center the image */
+  }
+
+  .headshot {
     width: 100%;
-    height: 60vh;
-    min-height: 400px;
   }
 
   .hero-content {
     width: 100%;
     padding: 2rem 1rem;
+    margin-top: 0.5rem;
+    gap:0;
   }
 
   .roles {
     gap: 1rem;
+    margin-top: 0.5rem;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero-image {
-    width: 42%;
+    width: auto;
   }
 
   .hero-content {
@@ -726,7 +737,7 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
   }
 }
   
-  TESTIMONIALS SECTION RESPONSIVE
+  /* TESTIMONIALS SECTION RESPONSIVE */
   
   @media (max-width: 768px) {
     .scroll-control {
@@ -756,4 +767,4 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
       width: 32px;
       height: 32px;
     }
-  } */
+  }

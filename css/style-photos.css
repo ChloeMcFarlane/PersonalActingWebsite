@@ -29,12 +29,11 @@
       color: #3E2723!important;
     }
     
-    
-    .nav-link{
+    .navbar .nav-link{
       font-family: "Source Sans 3", sans-serif !important;
-      color: #3E2723 !important;
-      padding-bottom: 0% !important;
-      padding-top: 7% !important;
+      color: #3E2723;
+      padding-bottom: 0%;
+      padding-top: 7%;
     }
     
     .nav-link:hover{
@@ -377,10 +376,6 @@
       font-size: 24px;
     }
     
-    .navbar-nav {
-      display: none;
-    }
-    
     .main-container {
       padding: 10px 15px;
     }
@@ -467,9 +462,39 @@
   /* ========================================
      RESPONSIVE DESIGN - SMALL MOBILE
      ======================================== */
-  @media (max-width: 480px) {
+  @media (max-width: 780px) {
+
     .navbar-brand {
       font-size: 20px;
+    }
+
+    .navbar-brand{
+      font-size: 24px;
+    }
+    .navbar .nav-link{
+      font-size: 20px;
+      padding-top: 2%;
+      padding-bottom: 2%;
+      display: flex; /* Use flexbox for centering */
+      justify-content: center; /* Center the text horizontally */
+      align-items: center; /* Center the text vertically */
+    }
+
+    .nav-item:hover::after {
+      transform: scaleX(0); /* Scale to full width on hover */
+    
+    }
+    
+    .nav-item::after {
+      content: ''; /* Create a pseudo-element for the underline */
+      position: absolute;
+      left: 0;
+      bottom: 0; /* Position it at the bottom */
+      width: 100%; /* Full width */
+      height: 2px; /* Height of the underline */
+      background-color: #3E2723; /* Underline color */
+      transform: scaleX(0); /* Initially scale to 0 */
+      transition: transform 300ms ease; /* Transition effect */
     }
     
     .gallery-title {

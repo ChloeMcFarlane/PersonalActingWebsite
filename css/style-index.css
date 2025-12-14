@@ -321,6 +321,7 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
   transition: all 0.3s ease;
   line-height: 1.6;
   margin-top: 10px;
+  text-align: justify;
 }
 
 .headshot-title-wrapper {
@@ -474,6 +475,7 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
     object-position: center;
     display: block;
   }
+
   .projects{
     display: flex;
     flex-direction: row;
@@ -511,6 +513,7 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
     line-height: 1.6;
     margin-top: 10px;
     margin-bottom: 15px;
+    text-align: justify;
   }
 
   .headshot-title-wrapper {
@@ -544,6 +547,7 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
     flex-direction: row;
     padding: 10vh;
     align-items: flex-start;
+    text-align: justify;
   }
 
   .whats-next h3{
@@ -772,7 +776,7 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
     margin: 3vh;
   }
   .about section p{
-    text-align: left;
+    text-align: justify;
   }
 
   .projects{

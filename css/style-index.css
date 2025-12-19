@@ -135,10 +135,6 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
 
 }
 
-.navbar-brand:hover{
-  color: #3E2723;
-}
-
 
 .nav-link{
   font-family: "Source Sans 3", sans-serif;
@@ -611,6 +607,43 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
     margin-bottom: 1rem; /* Space below the heading */
   }
 
+  .gallery-links a{
+    font-family: "Source Sans 3", sans-serif;
+    color: #3E2723;
+    padding-bottom: 0%;
+    padding-top: 7%;
+    text-decoration: none;
+  }
+  
+  .gallery-links a:hover{
+    color: #8b1a16;
+  }
+
+  .gallery-links-text {
+    position: relative; /* Position relative for the underline effect */
+  }
+
+  .gallery-links-text a {
+    position: relative; /* Position relative for the underline effect */
+    text-decoration: none; /* Remove default underline */
+  }
+
+  .gallery-links-text a::after {
+    content: ''; /* Create a pseudo-element for the underline */
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Position it at the bottom */
+    width: 100%; /* Full width */
+    height: 2px; /* Height of the underline */
+    background-color: #3E2723; /* Underline color */
+    transform: scaleX(0); /* Initially scale to 0 */
+    transition: transform 300ms ease; /* Transition effect */
+  }
+
+  .gallery-links-text a:hover::after {
+    transform: scaleX(1); /* Scale to full width on hover */
+  }
+
   .gallery-links p {
     font-family: "Source Sans 3", sans-serif;
     font-size: 18px; /* Medium font size for paragraphs */
@@ -780,13 +813,36 @@ border-radius: 8px; /* Adjust the value as needed for roundness */
   }
 
   .projects{
-    flex-direction: column;;
+    flex-direction: column;
+    align-items: center; /* Center align items */
+    text-align: center; /* Center text */
+  }
+
+  .prodphoto{
+    padding:0;
+    margin-top: 12px;
+    border-radius: 0px;
   }
   .whats-next{
+    padding: 16px;
     flex-direction: column;
+    align-items: center; /* Center align items */
+    text-align: center; /* Center text */
   }
   .recently{
+    padding: 16px;
+    margin-bottom: 15px;
+    margin-top: 10px;
     flex-direction: column;
+    align-items: center; /* Center align items */
+    text-align: center; /* Center text */
+  }
+  .recently .prodphoto{
+    width:100%;
+  }
+  .recently section{
+    margin-left: 0;
+
   }
 
 }

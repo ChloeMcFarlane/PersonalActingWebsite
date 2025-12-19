@@ -30,20 +30,12 @@ window.addEventListener('load', revealOnScroll);
 // TESTIMONIAL CAROUSEL 
 const testimonials = [
     {
-      quote: "Chloe is an exceptional talent with a captivating presence.",
-      company: "[Insert Company Name]"
+      quote: "Sensational.",
+      company: "Theatre Mirror"
     },
     {
-      quote: "Outstanding performance and professionalism every single time.",
-      company: "[Insert Company Name]"
-    },
-    {
-      quote: "A true artist who brings magic to every project she touches.",
-      company: "[Insert Company Name]"
-    },
-    {
-      quote: "Working with Chloe elevated our entire production quality.",
-      company: "[Insert Company Name]"
+      quote: "Shakespeare is about mastering the language while at the same time remaining emotionally available and alive. In this talented company, first-rate work abounds and no one does that better than McFarlane.",
+      company: "Broadway World"
     }
   ];
 

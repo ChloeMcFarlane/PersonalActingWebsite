@@ -18,26 +18,21 @@
      NAVIGATION
      ======================================== */
      .navbar-brand{
-      font-family: "Xanh Mono", monospace!important;
-      font-size: 32px !important;
-      color: #3E2723!important;
-    
-    }
-
-    
-    .navbar-brand:hover{
-      color: #3E2723!important;
+      font-family: "Xanh Mono", monospace;
+      font-size: 32px;
+      color: #3E2723;
     }
     
-    .navbar .nav-link{
-      font-family: "Source Sans 3", sans-serif !important;
+    
+    .nav-link{
+      font-family: "Source Sans 3", sans-serif;
       color: #3E2723;
       padding-bottom: 0%;
       padding-top: 7%;
     }
     
     .nav-link:hover{
-      color: #8b1a16 !important;
+      color: #8b1a16;
     }
     
     .nav-item {
@@ -59,6 +54,17 @@
     .nav-item:hover::after {
       transform: scaleX(.75); /* Scale to full width on hover */
     
+    }
+    
+    .navbar-toggler{
+      border-color: #8b1a16;
+      font-size: 18px;
+      line-height: 0%;
+      color: #3E2723;
+    }
+    
+    .navbar-toggler-icon{
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(139, 26, 22)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
     }
   
   /* ========================================
@@ -117,6 +123,12 @@
   /* ========================================
      GALLERY GRID
      ======================================== */
+
+.gallery-item img {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+}
   .gallery-grid {
     display: flex;
     flex-wrap: wrap;
@@ -148,7 +160,6 @@
   
   .gallery-item img {
     width: 100%;
-    height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.3s ease;
@@ -311,38 +322,64 @@
     flex-direction: column;
     margin-top: 40px;
   }
-  
-  #socials-links {
+
+#socials-links {
     display: flex;
     gap: 20px;
     justify-content: center;
+    padding-left: 0 !important;
+  }
+
+  ul #socials-links{
+    display: flex; /* Aligns list items side by side */
+    padding: 0; /* Removes default padding */
+    gap: 0px; /* Adds gap between each link */
+    text-decoration: none; /* Ensures no underline */
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #socials-links li{
     list-style: none;
-    padding: 10px 0;
-    margin: 0;
+    color: #3E2723; /* Sets the color */
+    text-decoration: none; /* Ensures no underline for list items */
   }
-  
-  .social-link {
-    position: relative;
-    color: #3E2723;
-    text-decoration: none;
+
+  #socials-links li a{
+    color: #3E2723; /* Sets the color for links */
+    text-decoration: none; /* Ensures no underline for links */
     font-size: 18px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition */
   }
-  
-  .social-link::after {
-    content: '';
+  #socials-links li {
+    position: relative; /* Position relative for the underline effect */
+  }
+
+  #socials-links li a {
+    position: relative; /* Position relative for the underline effect */
+    text-decoration: none; /* Remove default underline */
+  }
+
+  #socials-links li a::after {
+    content: ''; /* Create a pseudo-element for the underline */
     position: absolute;
     left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #3E2723;
-    transform: scaleX(0);
-    transition: transform 300ms ease;
+    bottom: 0; /* Position it at the bottom */
+    width: 100%; /* Full width */
+    height: 2px; /* Height of the underline */
+    background-color: #8b1a16; /* Underline color */
+    transform: scaleX(0); /* Initially scale to 0 */
+    transition: transform 300ms ease; /* Transition effect */
   }
-  
-  .social-link:hover::after {
-    transform: scaleX(1);
+
+  #socials-links li a:hover {
+    color: #8b1a16; /* Sets the color for links */
+    text-decoration: none; /* Ensure no underline for links */
+  }
+
+  #socials-links li a:hover::after {
+    transform: scaleX(1); /* Scale to full width on hover */
   }
   
   .copyright {
@@ -442,59 +479,50 @@
   /* ========================================
      RESPONSIVE DESIGN - TABLET
      ======================================== */
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .navbar-brand {
-      font-size: 32px;
-    }
-    .content-wrapper {
-      max-width: 600px;
+     @media (min-width: 769px) and (max-width: 991px) {
+
+      .navbar-brand {
+        font-size: 24px;
+      }
+      
+      .nav-link {
+        font-size: 20px;
+        padding: 2% 0; /* Combined padding for top and bottom */
+        display: flex; /* Use flexbox for centering */
+        justify-content: center; /* Center the text horizontally */
+        align-items: center; /* Center the text vertically */
+      }
+    
+      .nav-item {
+        position: relative; /* Position relative for the underline effect */
+      }
+    
+      .nav-item:hover::after {
+        transform: scaleX(0); /* Scale to full width on hover */
+      }
     }
     
-    .image-wrapper {
-      width: 265px;
-    }
-    
-    .gallery-item {
-      padding: 10px;
-    }
-  }
-  
   /* ========================================
      RESPONSIVE DESIGN - SMALL MOBILE
      ======================================== */
   @media (max-width: 780px) {
-
     .navbar-brand {
-      font-size: 20px;
-    }
-
-    .navbar-brand{
       font-size: 24px;
     }
-    .navbar .nav-link{
+    
+    .nav-link {
       font-size: 20px;
-      padding-top: 2%;
-      padding-bottom: 2%;
+      padding: 2% 0; /* Combined padding for top and bottom */
       display: flex; /* Use flexbox for centering */
       justify-content: center; /* Center the text horizontally */
       align-items: center; /* Center the text vertically */
     }
-
+    
+    .nav-item {
+      position: relative; /* Position relative for the underline effect */
+    }
     .nav-item:hover::after {
       transform: scaleX(0); /* Scale to full width on hover */
-    
-    }
-    
-    .nav-item::after {
-      content: ''; /* Create a pseudo-element for the underline */
-      position: absolute;
-      left: 0;
-      bottom: 0; /* Position it at the bottom */
-      width: 100%; /* Full width */
-      height: 2px; /* Height of the underline */
-      background-color: #3E2723; /* Underline color */
-      transform: scaleX(0); /* Initially scale to 0 */
-      transition: transform 300ms ease; /* Transition effect */
     }
     
     .gallery-title {
@@ -514,7 +542,9 @@
     }
     
     .gallery-item {
-      width: 100%;
-      max-width: 100%;
+      width: 85%;
+      max-width: 75%;
     }
+
   }
+

@@ -1,63 +1,64 @@
+// IMAGE IMPORTS
+// import image1 from 'src/Headshot1.jpg';
+// import image2 from 'src/Headshot2.jpg';
+// import image3 from 'src/Headshot3.jpg';
+// import image4 from 'src/Headshot4.jpg';
+// import image5 from 'src/Headshot5.jpg';
+// import image6 from 'src/Headshot6.jpg';
+// import image7 from 'src/Headshot7.jpg';
 // ========================================
 // GALLERY DATA
 // ========================================
 const galleryItems = [
   { 
     id: 0, 
-    thumb: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400', 
-    full: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200', 
+    thumb: '../src/Headshot1.jpg', 
+    full: '../src/Headshot1.jpg', 
     filter: 'one', 
     alt: 'Theatre' 
   },
   { 
     id: 1, 
-    thumb: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400', 
-    full: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200', 
+    thumb: '../src/Headshot2.jpg', 
+    full: '../src/Headshot2.jpg', 
     filter: 'one', 
     alt: 'Theatre' 
   },
   { 
     id: 2, 
-    thumb: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400', 
-    full: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200', 
+    thumb: '../src/Headshot3.jpg', 
+    full: '../src/Headshot3.jpg', 
     filter: 'two', 
     alt: 'Print' 
   },
   { 
     id: 3, 
-    thumb: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400', 
-    full: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=1200', 
+    thumb: '../src/Headshot4.jpg', 
+    full: '../src/Headshot4.jpg', 
     filter: 'two', 
     alt: 'Print' 
   },
   { 
     id: 4, 
-    thumb: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400', 
-    full: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=1200', 
+    thumb: '../src/Headshot5.jpg', 
+    full: '../src/Headshot5.jpg', 
     filter: 'three', 
     alt: 'Digitals' 
   },
   { 
     id: 5, 
-    thumb: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400', 
-    full: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1200', 
+    thumb: '../src/Headshot6.jpg', 
+    full: '../src/Headshot6.jpg', 
     filter: 'three', 
     alt: 'Digitals' 
   },
   { 
     id: 6, 
-    thumb: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400', 
-    full: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200', 
+    thumb: '../src/Headshot7.jpg', 
+    full: '../src/Headshot7.jpg', 
     filter: 'four', 
     alt: 'Stills' 
   },
-  { 
-    id: 7, 
-    thumb: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400', 
-    full: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=1200', 
-    filter: 'four', 
-    alt: 'Stills' 
-  }
 ];
 
 // ========================================

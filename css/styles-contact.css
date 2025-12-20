@@ -128,47 +128,53 @@ img {
 }
 
 .navbar-brand{
-    font-family: "Xanh Mono", monospace;
-    font-size: 32px;
-    color: #3E2723;
+  font-family: "Xanh Mono", monospace;
+  font-size: 32px;
+  color: #3E2723;
 
 }
-
-.navbar-brand:hover{
-    color: #3E2723;
-}
-
 
 .nav-link{
-    font-family: "Source Sans 3", sans-serif;
-    color: #3E2723;
-    padding-bottom: 0%;
-    padding-top: 7%;
+  font-family: "Source Sans 3", sans-serif;
+  color: #3E2723;
+  padding-bottom: 0%;
+  padding-top: 7%;
 }
 
 .nav-link:hover{
-    color: #8b1a16;
+  color: #8b1a16;
 }
 
 .nav-item {
-    position: relative; /* Position relative for the underline effect */
+  position: relative; /* Position relative for the underline effect */
 }
 
 .nav-item::after {
-    content: ''; /* Create a pseudo-element for the underline */
-    position: absolute;
-    left: 0;
-    bottom: 0; /* Position it at the bottom */
-    width: 100%; /* Full width */
-    height: 2px; /* Height of the underline */
-    background-color: #3E2723; /* Underline color */
-    transform: scaleX(0); /* Initially scale to 0 */
-    transition: transform 300ms ease; /* Transition effect */
+  content: ''; /* Create a pseudo-element for the underline */
+  position: absolute;
+  left: 0;
+  bottom: 0; /* Position it at the bottom */
+  width: 100%; /* Full width */
+  height: 2px; /* Height of the underline */
+  background-color: #3E2723; /* Underline color */
+  transform: scaleX(0); /* Initially scale to 0 */
+  transition: transform 300ms ease; /* Transition effect */
 }
 
 .nav-item:hover::after {
-    transform: scaleX(.75); /* Scale to full width on hover */
+  transform: scaleX(.75); /* Scale to full width on hover */
 
+}
+
+.navbar-toggler{
+  border-color: #8b1a16;
+  font-size: 18px;
+  line-height: 0%;
+  color: #3E2723;
+}
+
+.navbar-toggler-icon{
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(139, 26, 22)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .form-control {
@@ -228,6 +234,10 @@ footer {
   flex-direction: column;
 }
 
+ul{
+  padding: 0;
+}
+
 #socials-links {
   display: flex;
   gap: 20px;
@@ -284,6 +294,40 @@ ul #socials-links{
 
 #socials-links li a:hover::after {
   transform: scaleX(1); /* Scale to full width on hover */
+}
+
+@media (max-width: 780px), (min-width: 769px) and (max-width: 991px) {
+  .navbar-brand {
+    font-size: 24px;
+  }
+  
+  .nav-link {
+    font-size: 20px;
+    padding: 2% 0; /* Combined padding for top and bottom */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+  }
+
+  .nav-item {
+    position: relative; /* Position relative for the underline effect */
+  }
+
+  .nav-item::after {
+    content: ''; /* Create a pseudo-element for the underline */
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Position it at the bottom */
+    width: 100%; /* Full width */
+    height: 2px; /* Height of the underline */
+    background-color: #3E2723; /* Underline color */
+    transform: scaleX(0); /* Initially scale to 0 */
+    transition: transform 300ms ease; /* Transition effect */
+  }
+
+  .nav-item:hover::after {
+    transform: scaleX(0); /* Scale to full width on hover */
+  }
 }
 
 

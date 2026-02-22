@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Photos | Chloe McFarlane</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/css/style-photos.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Xanh+Mono:ital@0;1&display=swap');
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a class="navbar-brand" href="/html/index.html">Chloe McFarlane</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-menu" id="navMenu">
+              <a href="index.html">About</a>
+              <a href="../src/ChloeMcFarlaneResume.pdf" target="_blank">Resume</a>
+              <a href="photos.html">Photos</a>
+              <a href="contact.html">Contact</a>
+          </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-container">
+            <div class="content-wrapper">
+                <h1 class="gallery-title">Photos</h1>
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">ALL</button>
+                    <button class="filter-btn" data-filter="one">THEATRE</button>
+                    <button class="filter-btn" data-filter="two">MARKETING</button>
+                    <button class="filter-btn" data-filter="three">HEADSHOTS</button>
+                </div>
+                <div class="gallery-grid" id="galleryGrid"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-wrapper">
+            <ul id="socials-links">
+                <li><a href="https://www.instagram.com/chlo.mcfarlane/" target="_blank">Instagram</a></li>
+                <li><a href="https://www.tiktok.com/@peachyfuckenkeen?is_from_webapp=1&sender_device=pc" target="_blank">TikTok</a></li>
+                <li><a href="https://www.imdb.com/name/nm13423305/" target="_blank">IMDB</a></li>
+            </ul>
+            <h3 id="footer-message">Chloe McFarlane</h3>
+            <p class="footer-copy">&copy; 2024 Chloe McFarlane. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="imageOverlay" class="overlay">
+        <div class="overlay-inner">
+            <button class="close-btn" aria-label="Close">Close X</button>
+            <button class="nav-btn prev-btn" aria-label="Previous">‹</button>
+            <button class="nav-btn next-btn" aria-label="Next">›</button>
+            <div class="image-container">
+                <img id="overlayImage" src="" alt="" class="overlay-image">
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/photos.js" defer></script>
+</body>
+</html>

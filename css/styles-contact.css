@@ -1,333 +1,417 @@
-/* FONT */
-
-.xanh-mono-regular {
-    font-family: "Xanh Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
-}
-
-  
-.source-sans-3 {
-    font-family: "Source Sans 3", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400; /* Replace <weight> with a valid number */
-    font-style: normal;
-  }
-
-  /* ANIMATIONS */
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeInLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-  }
-
-  @keyframes slideInStagger {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideUpSlow {
-    from {
-      transform: translateY(30px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes gradientShift {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  @keyframes slideUp {
-    from {
-      transform: translateY(30px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-p{
-  margin-bottom: 0;
-}
-
-main{
-  margin-bottom: 15vh;
-  margin-top: 10vh;
-}
-
-body{
-    font-family: "Source Sans 3", sans-serif;
-    background-color: #ECEAE2;
-    color: #3E2723;
-}
-
-/* Removed empty ruleset for img */
-img {
-  border-radius: 8px; /* Adjust the value as needed for roundness */
-}
-
-.navbar-brand{
-  font-family: "Xanh Mono", monospace;
-  font-size: 32px;
-  color: #3E2723;
-
-}
-
-.nav-link{
-  font-family: "Source Sans 3", sans-serif;
-  color: #3E2723;
-  padding-bottom: 0%;
-  padding-top: 7%;
-}
-
-.nav-link:hover{
-  color: #8b1a16;
-}
-
-.nav-item {
-  position: relative; /* Position relative for the underline effect */
-}
-
-.nav-item::after {
-  content: ''; /* Create a pseudo-element for the underline */
-  position: absolute;
-  left: 0;
-  bottom: 0; /* Position it at the bottom */
-  width: 100%; /* Full width */
-  height: 2px; /* Height of the underline */
-  background-color: #3E2723; /* Underline color */
-  transform: scaleX(0); /* Initially scale to 0 */
-  transition: transform 300ms ease; /* Transition effect */
-}
-
-.nav-item:hover::after {
-  transform: scaleX(.75); /* Scale to full width on hover */
-
-}
-
-.navbar-toggler{
-  border-color: #8b1a16;
-  font-size: 18px;
-  line-height: 0%;
-  color: #3E2723;
-}
-
-.navbar-toggler-icon{
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(139, 26, 22)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-.form-control {
-    border: 2px solid #3E2723;
-    border-radius: 4px;
-    padding: 10px;
-    font-size: 16px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    background-color: #ECEAE2;
-}
-
-.form-control:focus {
-    border-color: #3E2723;
-    box-shadow: 0 0 0 0.2rem rgba(139, 26, 22, 0.25);
-    background-color: #ECEAE2;
-}
-
-.btn-primary{
-    margin-top: 20px;
-    background-color: #3E2723; /* Underline color */
-    border: none;
-    color: #eccaca;
-}
-
-.btn:hover, .btn-primary:hover, .btn-lg:hover{
-  margin-top: 20px;
-  background-color: #eccaca !important; /* Background color */
-  border: 2px solid #3E2723 !important; /* 2px border */
-  color: #3E2723 !important; /* Text color */
-}
-
-.btn-primary:active .btn:active .btn{
-  margin-top: 20px;
-  background-color: #3E2723; /* Underline color */
-  border: none;
-  color: #eccaca;
-}
-
-/* FOOTER */
-
-footer{
-  background-color: #3E2723;
-  color: #eceae2;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 16px;
-}
-
-footer h3{
-  margin-bottom: 10px;
-  font-size: 96px;
-  font-family:"Xanh Mono", monospace;
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-}
-
-ul{
-  padding: 0;
-}
-
-#socials-links {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-ul #socials-links{
-  display: flex; /* Aligns list items side by side */
-  padding: 0; /* Removes default padding */
-  gap: 0px; /* Adds gap between each link */
-  text-decoration: none; /* Ensures no underline */
-  justify-content: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-#socials-links li{
-  list-style: none;
-  color: #eceae2; /* Sets the color */
-  text-decoration: none; /* Ensures no underline for list items */
-}
-
-#socials-links li a{
-  color: #eceae2; /* Sets the color for links */
-  text-decoration: none; /* Ensures no underline for links */
-  font-size: 18px;
-  transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition */
-}
-#socials-links li {
-  position: relative; /* Position relative for the underline effect */
-}
-
-#socials-links li a {
-  position: relative; /* Position relative for the underline effect */
-  text-decoration: none; /* Remove default underline */
-}
-
-#socials-links li a::after {
-  content: ''; /* Create a pseudo-element for the underline */
-  position: absolute;
-  left: 0;
-  bottom: 0; /* Position it at the bottom */
-  width: 100%; /* Full width */
-  height: 2px; /* Height of the underline */
-  background-color: #eceae2; /* Underline color */
-  transform: scaleX(0); /* Initially scale to 0 */
-  transition: transform 300ms ease; /* Transition effect */
-}
-
-#socials-links li a:hover {
-  color: #eceae2; /* Sets the color for links */
-  text-decoration: none; /* Ensure no underline for links */
-}
-
-#socials-links li a:hover::after {
-  transform: scaleX(1); /* Scale to full width on hover */
-}
-
-@media (max-width: 780px), (min-width: 769px) and (max-width: 991px) {
-  .navbar-brand {
-    font-size: 24px;
-  }
-  
-  .nav-link {
-    font-size: 20px;
-    padding: 2% 0; /* Combined padding for top and bottom */
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center the text horizontally */
-    align-items: center; /* Center the text vertically */
-  }
-
-  .nav-item {
-    position: relative; /* Position relative for the underline effect */
-  }
-
-  .nav-item::after {
-    content: ''; /* Create a pseudo-element for the underline */
-    position: absolute;
-    left: 0;
-    bottom: 0; /* Position it at the bottom */
-    width: 100%; /* Full width */
-    height: 2px; /* Height of the underline */
-    background-color: #3E2723; /* Underline color */
-    transform: scaleX(0); /* Initially scale to 0 */
-    transition: transform 300ms ease; /* Transition effect */
-  }
-
-  .nav-item:hover::after {
-    transform: scaleX(0); /* Scale to full width on hover */
-  }
-}
-
-
+/* ========================================
+   FONTS & KEYFRAMES
+   ======================================== */
+   @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+   @keyframes spin     { to { transform: rotate(360deg); } }
+   
+   /* ========================================
+      RESET & BASE
+      ======================================== */
+   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+   
+   body {
+       font-family: "Source Sans 3", sans-serif;
+       background-color: #ECEAE2;
+       color: #3E2723;
+       line-height: 1.5;
+   }
+   
+   img  { display: block; border-radius: 8px; }
+   a    { color: inherit; text-decoration: none; }
+   p    { margin: 0; }
+   ul   { list-style: none; padding: 0; margin: 0; }
+   main { margin-top: 72px; }
+   
+   /* ========================================
+      NAVIGATION — copied 1:1 from style-index.css
+      ======================================== */
+   .navbar {
+       position: fixed;
+       top: 0; left: 0; right: 0;
+       z-index: 100;
+       background-color: #3E2723;
+       padding: 1rem 2rem;
+       height: 72px;
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+   }
+   
+   .navbar-brand {
+       font-family: "Xanh Mono", monospace;
+       font-size: clamp(20px, 2.5vw, 28px);
+       color: #eccaca;
+       text-decoration: none;
+       white-space: nowrap;
+       transition: color 0.3s ease;
+   }
+   .navbar-brand:hover { color: #ECEAE2; }
+   
+   .nav-menu {
+       display: flex;
+       gap: 2.5rem;
+       align-items: center;
+       margin-left: auto;
+   }
+   
+   .nav-menu a {
+       font-family: "Source Sans 3", sans-serif;
+       font-size: 16px;
+       color: #eccaca;
+       text-decoration: none;
+       position: relative;
+       padding-bottom: 2px;
+       transition: color 0.25s ease;
+   }
+   .nav-menu a::after {
+       content: '';
+       position: absolute;
+       left: 0; bottom: 0;
+       width: 100%; height: 2px;
+       background-color: #eccaca;
+       transform: scaleX(0);
+       transition: transform 280ms ease;
+   }
+   .nav-menu a:hover           { color: #ECEAE2; }
+   .nav-menu a:hover::after    { transform: scaleX(1); }
+   
+   /* Active page indicator */
+   .nav-active {
+       color: #ECEAE2 !important;
+   }
+   .nav-active::after {
+       transform: scaleX(1) !important;
+   }
+   
+   /* Hamburger */
+   .nav-toggle {
+       display: none;
+       flex-direction: column;
+       gap: 5px;
+       background: none;
+       border: none;
+       cursor: pointer;
+       padding: 8px;
+       z-index: 101;
+   }
+   .nav-toggle span {
+       display: block;
+       width: 24px; height: 2px;
+       background-color: #eccaca;
+       transition: all 0.3s ease;
+       border-radius: 2px;
+   }
+   .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+   .nav-toggle.active span:nth-child(2) { opacity: 0; }
+   .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+   
+   /* ========================================
+      CONTACT LAYOUT
+      Two columns: left = heading + info, right = form
+      ======================================== */
+   .contact-wrapper {
+       display: flex;
+       flex-direction: row;
+       align-items: flex-start;
+       gap: 6vw;
+       max-width: 1100px;
+       margin: 0 auto;
+       padding: 8vh 4vw 12vh;
+       animation: fadeInUp 0.7s ease-out both;
+   }
+   
+   /* ========================================
+      LEFT COLUMN
+      ======================================== */
+   .contact-left {
+       flex: 1;
+       display: flex;
+       flex-direction: column;
+       gap: 2rem;
+       padding-top: 0.5rem;
+   }
+   
+   .contact-heading {
+       font-family: "Xanh Mono", monospace;
+       font-size: clamp(40px, 6vw, 80px);
+       line-height: 1.05;
+       color: #3E2723;
+   }
+   .contact-heading em {
+       color: #eccaca;
+       font-style: italic;
+   }
+   
+   .contact-sub {
+       font-size: clamp(15px, 1.5vw, 18px);
+       color: #5a3d38;
+       line-height: 1.7;
+       max-width: 380px;
+   }
+   
+   /* Contact detail rows */
+   .contact-details {
+       display: flex;
+       flex-direction: column;
+       gap: 1.1rem;
+       margin-top: 0.5rem;
+   }
+   
+   .contact-detail-item {
+       display: flex;
+       align-items: center;
+       gap: 0.75rem;
+   }
+   .contact-detail-item svg {
+       width: 20px; height: 20px;
+       flex-shrink: 0;
+   }
+   .contact-detail-item a {
+       font-size: 15px;
+       color: #3E2723;
+       text-decoration: none;
+       position: relative;
+       padding-bottom: 1px;
+       transition: color 0.25s ease;
+   }
+   .contact-detail-item a::after {
+       content: '';
+       position: absolute;
+       left: 0; bottom: 0;
+       width: 100%; height: 1px;
+       background-color: #3E2723;
+       transform: scaleX(0);
+       transition: transform 280ms ease;
+   }
+   .contact-detail-item a:hover            { color: #7f1d1d; }
+   .contact-detail-item a:hover::after     { transform: scaleX(1); }
+   
+   /* ========================================
+      RIGHT COLUMN — FORM
+      ======================================== */
+   .contact-right {
+       flex: 1.1;
+       background-color: #f5f0e8;
+       border-radius: 12px;
+       padding: 2.5rem 2.5rem 2rem;
+       box-shadow: 0 4px 24px rgba(62,39,35,0.07);
+   }
+   
+   /* Field groups */
+   .field-group {
+       display: flex;
+       flex-direction: column;
+       gap: 6px;
+       margin-bottom: 1.4rem;
+   }
+   
+   .field-group label {
+       font-family: "Source Sans 3", sans-serif;
+       font-size: 13px;
+       font-weight: 700;
+       letter-spacing: 0.1em;
+       text-transform: uppercase;
+       color: #3E2723;
+   }
+   
+   .field-group input,
+   .field-group textarea {
+       font-family: "Source Sans 3", sans-serif;
+       font-size: 15px;
+       color: #3E2723;
+       background-color: #ECEAE2;
+       border: 2px solid rgba(62,39,35,0.2);
+       border-radius: 6px;
+       padding: 10px 14px;
+       width: 100%;
+       transition: border-color 0.25s ease, box-shadow 0.25s ease;
+       outline: none;
+       resize: none;
+   }
+   
+   .field-group textarea {
+       height: 140px;
+   }
+   
+   .field-group input:focus,
+   .field-group textarea:focus {
+       border-color: #3E2723;
+       box-shadow: 0 0 0 3px rgba(236, 202, 202, 0.4);
+   }
+   
+   /* Validation error state */
+   .field-group input.invalid,
+   .field-group textarea.invalid {
+       border-color: #7f1d1d;
+   }
+   
+   .field-error {
+       font-size: 12px;
+       color: #7f1d1d;
+       display: none;
+   }
+   .field-error.visible { display: block; }
+   
+   /* ========================================
+      FORM BANNERS (success / error)
+      ======================================== */
+   .form-banner {
+       display: none;
+       align-items: center;
+       gap: 10px;
+       padding: 12px 16px;
+       border-radius: 6px;
+       font-size: 14px;
+       font-weight: 500;
+       margin-bottom: 1.25rem;
+   }
+   .form-banner.visible { display: flex; }
+   .form-banner svg { width: 18px; height: 18px; flex-shrink: 0; }
+   
+   .form-success {
+       background-color: rgba(236, 202, 202, 0.35);
+       color: #3E2723;
+       border: 1px solid #eccaca;
+   }
+   .form-error {
+       background-color: rgba(127, 29, 29, 0.08);
+       color: #7f1d1d;
+       border: 1px solid rgba(127,29,29,0.25);
+   }
+   
+   /* ========================================
+      SUBMIT BUTTON
+      ======================================== */
+   .submit-btn {
+       width: 100%;
+       padding: 13px 24px;
+       background-color: #3E2723;
+       color: #eccaca;
+       border: 2px solid #3E2723;
+       border-radius: 6px;
+       font-family: "Source Sans 3", sans-serif;
+       font-size: 15px;
+       font-weight: 600;
+       cursor: pointer;
+       transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+       position: relative;
+       overflow: hidden;
+   }
+   .submit-btn:hover:not(:disabled) {
+       background-color: #eccaca;
+       color: #3E2723;
+       border-color: #3E2723;
+   }
+   .submit-btn:disabled {
+       opacity: 0.65;
+       cursor: not-allowed;
+   }
+   
+   /* Show/hide label vs sending text */
+   .btn-sending { display: none; }
+   .submit-btn.sending .btn-label  { display: none; }
+   .submit-btn.sending .btn-sending { display: inline; }
+   
+   /* ========================================
+      FOOTER — copied 1:1 from style-index.css
+      ======================================== */
+   footer {
+       background-color: #3E2723;
+       padding: 40px 20px 24px;
+       color: #eceae2;
+       text-align: center;
+   }
+   
+   .footer-wrapper {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 16px;
+   }
+   
+   #socials-links {
+       display: flex;
+       justify-content: center;
+       gap: 40px;
+       padding: 10px 0;
+   }
+   
+   #socials-links li a {
+       color: #eceae2;
+       font-size: 17px;
+       text-decoration: none;
+       position: relative;
+       transition: color 0.25s ease;
+   }
+   #socials-links li a::after {
+       content: '';
+       position: absolute;
+       left: 0; bottom: -1px;
+       width: 100%; height: 2px;
+       background-color: #eceae2;
+       transform: scaleX(0);
+       transition: transform 280ms ease;
+   }
+   #socials-links li a:hover::after { transform: scaleX(1); }
+   
+   #footer-message {
+       font-family: "Xanh Mono", monospace;
+       font-size: clamp(36px, 7vw, 88px);
+       line-height: 1;
+       color: #eceae2;
+   }
+   
+   .footer-copy {
+       font-size: 13px;
+       color: rgba(236,234,226,0.45);
+       margin: 0;
+   }
+   
+   /* ========================================
+      RESPONSIVE — TABLET
+      ======================================== */
+   @media (max-width: 900px) {
+       .contact-wrapper { gap: 4vw; padding: 6vh 4vw 10vh; }
+       .contact-right   { padding: 2rem 1.75rem; }
+   }
+   
+   /* ========================================
+      RESPONSIVE — MOBILE
+      ======================================== */
+   @media (max-width: 680px) {
+   
+       /* Nav */
+       .navbar { padding: 1rem; }
+       .nav-toggle { display: flex; }
+       .nav-menu {
+           position: fixed;
+           top: 72px; left: -100%;
+           width: 100%; max-width: 280px;
+           height: 100vh;
+           background-color: #3E2723;
+           flex-direction: column;
+           align-items: flex-start;
+           padding: 2rem;
+           gap: 2rem;
+           transition: left 0.3s ease;
+           z-index: 1000;
+           box-shadow: 4px 0 16px rgba(0,0,0,0.25);
+           margin-left: 0;
+       }
+       .nav-menu.active  { left: 0; }
+       .nav-menu a       { font-size: 18px; }
+   
+       /* Contact layout — stacked */
+       .contact-wrapper {
+           flex-direction: column;
+           padding: 5vh 5vw 10vh;
+           gap: 3rem;
+       }
+   
+       .contact-heading { font-size: clamp(36px, 10vw, 56px); }
+   
+       .contact-right { padding: 1.75rem 1.25rem; }
+   
+       #socials-links { gap: 20px; }
+       #footer-message { font-size: 40px; }
+   }

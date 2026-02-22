@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Contact | Chloe McFarlane</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/styles-contact.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Xanh+Mono:ital@0;1&display=swap');
+    </style>
+</head>
+<body>
+
+    <!-- ===================== NAV — matches index.html exactly ===================== -->
+    <header>
+        <nav class="navbar">
+
+            <a class="navbar-brand" href="/html/index.html">Chloe McFarlane</a>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">About</a>
+                <a href="../src/ChloeMcFarlaneResume.pdf" target="_blank">Resume</a>
+                <a href="photos.html">Photos</a>
+                <a href="contact.html" class="nav-active">Contact</a>
+            </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </nav>
+    </header>
+
+    <main>
+        <div class="contact-wrapper">
+
+            <!-- Left: heading + info -->
+            <div class="contact-left">
+                <h1 class="contact-heading">Get in<br><em>touch.</em></h1>
+                <p class="contact-sub">Whether you're a casting director, collaborator, or just want to say hello — I'd love to hear from you.</p>
+
+                <div class="contact-details">
+                    <div class="contact-detail-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#eccaca" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <a href="mailto:chloem627@gmail.com">chloem627@gmail.com</a>
+                    </div>
+                    <div class="contact-detail-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#eccaca" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                        <a href="https://www.instagram.com/chlo.mcfarlane/" target="_blank">@chlo.mcfarlane</a>
+                    </div>
+                    <div class="contact-detail-item">
+                        <svg class="learn-heart" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#eccaca"/>
+                        </svg>
+                        <a href="https://www.imdb.com/name/nm13423305/" target="_blank">IMDb Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: form -->
+            <div class="contact-right">
+                <form id="contactForm" action="https://formspree.io/f/mkgeegky" method="POST" novalidate>
+
+                    <div class="field-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required />
+                        <span class="field-error" id="nameError">Please enter your name.</span>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emailAddress">Email</label>
+                        <input type="email" id="emailAddress" name="email" placeholder="your@email.com" autocomplete="email" required />
+                        <span class="field-error" id="emailError">Please enter a valid email address.</span>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="text" placeholder="What's on your mind?" required></textarea>
+                        <span class="field-error" id="messageError">Please write a message.</span>
+                    </div>
+
+                    <!-- Success / error banners — hidden until JS shows them -->
+                    <div class="form-banner form-success" id="formSuccess" aria-live="polite">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Message sent! I'll be in touch soon.
+                    </div>
+                    <div class="form-banner form-error" id="formError" aria-live="polite">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        Something went wrong. Please try again or email me directly.
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="submit-btn">
+                        <span class="btn-label">Send Message</span>
+                        <span class="btn-sending" aria-hidden="true">Sending…</span>
+                    </button>
+
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ===================== FOOTER — matches index.html ===================== -->
+    <footer>
+        <div class="footer-wrapper">
+            <ul id="socials-links">
+                <li><a href="https://www.instagram.com/chlo.mcfarlane/" target="_blank">Instagram</a></li>
+                <li><a href="https://www.tiktok.com/@peachyfuckenkeen?is_from_webapp=1&sender_device=pc" target="_blank">TikTok</a></li>
+                <li><a href="https://www.imdb.com/name/nm13423305/" target="_blank">IMDB</a></li>
+            </ul>
+            <h3 id="footer-message">Chloe McFarlane</h3>
+            <p class="footer-copy">&copy; 2024 Chloe McFarlane. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
+    <script src="/js/contact.js" defer></script>
+</body>
+</html>

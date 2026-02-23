@@ -22,15 +22,18 @@ document.addEventListener('click', (e) => {
 // filter: 'one' = Theatre, 'two' = Marketing, 'three' = Headshots
 // ========================================
 const galleryItems = [
-    { id: 0,  thumb: '../src/prodphotos/topgirls1.jpg',    full: '../src/prodphotos/topgirls1.jpg',    filter: 'one',   alt: 'Theatre' },
-    { id: 1,  thumb: '../src/prodphotos/topgirls2.jpg',    full: '../src/prodphotos/topgirls2.jpg',    filter: 'one',   alt: 'Theatre' },
-    { id: 2,  thumb: '../src/prodphotos/topgirls3.jpg',    full: '../src/prodphotos/topgirls3.jpg',    filter: 'one',   alt: 'Theatre' },
-    { id: 3,  thumb: '../src/prodphotos/dirspro1.jpg',     full: '../src/prodphotos/dirspro1.jpg',     filter: 'two',   alt: 'Marketing' },
-    { id: 4,  thumb: '../src/prodphotos/dirspro2.jpg',     full: '../src/prodphotos/dirspro2.jpg',     filter: 'one',   alt: 'Theatre' },
-    { id: 5,  thumb: '../src/prodphotos/dirspro4.jpg',     full: '../src/prodphotos/dirspro4.jpg',     filter: 'one',   alt: 'Theatre' },
-    { id: 6,  thumb: '../src/headshots/headshot1.jpg',     full: '../src/headshots/headshot1.jpg',     filter: 'three', alt: 'Headshots' },
-    { id: 7,  thumb: '../src/headshots/headshot2.jpg',     full: '../src/headshots/headshot2.jpg',     filter: 'three', alt: 'Headshots' },
-    { id: 8,  thumb: '../src/headshots/headshot3.jpg',     full: '../src/headshots/headshot3.jpg',     filter: 'three', alt: 'Headshots' },
+    { id: 0,  thumb: '../src/LWprodphotos1.jpg',    full: '../src/LWprodphotos1.jpg',    filter: 'one',   alt: 'Theatre' },
+    { id: 1,  thumb: '../src/LWprodphotos2.jpg',    full: '../src/LWprodphotos2.jpg',    filter: 'one',   alt: 'Theatre' },
+    { id: 2,  thumb: '../src/LWprodphotos3.jpg',    full: '../src/LWprodphotos3.jpg',    filter: 'one',   alt: 'Theatre' },
+    { id: 5,  thumb: '../src/TGprodphoto1.jpg',     full: '../src/TGprodphoto1.jpg',     filter: 'one',   alt: 'Theatre' },
+    { id: 6,  thumb: '../src/headshot1.jpg',     full: '../src/headshot1.jpg',     filter: 'three', alt: 'Headshots' },
+    { id: 7,  thumb: '../src/headshot2.jpg',     full: '../src/headshot2.jpg',     filter: 'three', alt: 'Headshots' },
+    { id: 8,  thumb: '../src/headshot3.jpg',     full: '../src/headshot3.jpg',     filter: 'three', alt: 'Headshots' },
+    { id: 6,  thumb: '../src/headshot4.jpg',     full: '../src/headshot4.jpg',     filter: 'three', alt: 'Headshots' },
+    { id: 7,  thumb: '../src/headshot5.jpg',     full: '../src/headshot5.jpg',     filter: 'three', alt: 'Headshots' },
+    { id: 8,  thumb: '../src/headshot7.jpg',     full: '../src/headshot7.jpg',     filter: 'three', alt: 'Headshots' },
+    { id: 3,  thumb: '../src/CMdigital1.JPG',     full: '../src/CMdigital1.JPG',     filter: 'two',   alt: 'Digitals' },
+    { id: 4,  thumb: '../src/CMdigital2.jpg',     full: '../src/CMdigital2.jpg',     filter: 'two',   alt: 'Digitals' },
 ];
 
 

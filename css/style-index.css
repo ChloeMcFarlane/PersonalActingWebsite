@@ -490,6 +490,40 @@
        border-color: #3E2723 !important;
        color: #3E2723;
    }
+
+   .dir-buttons{
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    text-align: center;
+    width: 65%;
+   }
+
+   .dir-buttons a {
+    width: 100%;
+    margin: auto;
+    border: 2px solid #3E2723;
+    border-radius: 4px;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 16px;
+    padding: 11px 26px;
+    background-color: #3E2723;
+    color: #eccaca;
+    animation: fadeInUp 0.8s cubic-bezier(0, 0, 0, 0.78) .9s both;
+   }
+
+   #showcase-link{
+    border: 3px solid #eccaca !important;
+   }
+
+   .dir-buttons a:hover {
+    background-color: #eccaca;
+    color: #3E2723;
+    border-color: #3E2723;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+   }
    
    /* ========================================
       LEARN MORE

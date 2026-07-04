@@ -22,18 +22,19 @@ document.addEventListener('click', (e) => {
 // filter: 'one' = Theatre, 'two' = Marketing, 'three' = Headshots
 // ========================================
 const galleryItems = [
-    { id: 0,  thumb: '../src/LWprodphotos1.jpg',    full: '../src/LWprodphotos1.jpg',    filter: 'one',   alt: 'Theatre' },
+    { id: 0,  thumb: '../src/RJprodphoto2.jpg',    full: '../src/RJprodphoto2.jpg',    filter: 'one',   alt: 'Theatre' },
     { id: 1,  thumb: '../src/LWprodphotos2.jpg',    full: '../src/LWprodphotos2.jpg',    filter: 'one',   alt: 'Theatre' },
     { id: 2,  thumb: '../src/LWprodphotos3.jpg',    full: '../src/LWprodphotos3.jpg',    filter: 'one',   alt: 'Theatre' },
+    { id: 4,  thumb: '../src/LWprodphotos1.jpg',    full: '../src/LWprodphotos1.jpg',    filter: 'one',   alt: 'Theatre' },
     { id: 5,  thumb: '../src/TGprodphoto1.jpg',     full: '../src/TGprodphoto1.jpg',     filter: 'one',   alt: 'Theatre' },
     { id: 6,  thumb: '../src/headshot1.jpg',     full: '../src/headshot1.jpg',     filter: 'three', alt: 'Headshots' },
     { id: 7,  thumb: '../src/headshot2.jpg',     full: '../src/headshot2.jpg',     filter: 'three', alt: 'Headshots' },
     { id: 8,  thumb: '../src/headshot3.jpg',     full: '../src/headshot3.jpg',     filter: 'three', alt: 'Headshots' },
-    { id: 6,  thumb: '../src/headshot4.jpg',     full: '../src/headshot4.jpg',     filter: 'three', alt: 'Headshots' },
-    { id: 7,  thumb: '../src/headshot5.jpg',     full: '../src/headshot5.jpg',     filter: 'three', alt: 'Headshots' },
-    { id: 8,  thumb: '../src/headshot7.jpg',     full: '../src/headshot7.jpg',     filter: 'three', alt: 'Headshots' },
-    { id: 3,  thumb: '../src/CMdigital1.JPG',     full: '../src/CMdigital1.JPG',     filter: 'two',   alt: 'Digitals' },
-    { id: 4,  thumb: '../src/CMdigital2.jpg',     full: '../src/CMdigital2.jpg',     filter: 'two',   alt: 'Digitals' },
+    { id: 9,  thumb: '../src/headshot4.jpg',     full: '../src/headshot4.jpg',     filter: 'three', alt: 'Headshots' },
+    { id: 10,  thumb: '../src/headshot5.jpg',     full: '../src/headshot5.jpg',     filter: 'three', alt: 'Headshots' },
+    { id: 11,  thumb: '../src/headshot7.jpg',     full: '../src/headshot7.jpg',     filter: 'three', alt: 'Headshots' },
+    { id: 12,  thumb: '../src/CMdigital1.JPG',     full: '../src/CMdigital1.JPG',     filter: 'two',   alt: 'Digitals' },
+    { id: 13,  thumb: '../src/CMdigital2.jpg',     full: '../src/CMdigital2.jpg',     filter: 'two',   alt: 'Digitals' },
 ];
 
 

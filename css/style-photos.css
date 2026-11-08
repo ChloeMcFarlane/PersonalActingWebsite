@@ -1,4 +1,54 @@
 /* ========================================
+   CSS VARIABLES — COLOUR PALETTE
+   Every colour on the site lives here. Change a value once
+   and it updates everywhere. Add new colours here, never inline.
+   (This identical block is at the top of style-index.css,
+   style-photos.css and styles-contact.css — keep them in sync.)
+   ======================================== */
+   :root {
+    /* ---- Brand palette ---- */
+    --espresso:       #3E2723;   /* primary dark brown — nav, footer, buttons, headings */
+    --cream:          #ECEAE2;   /* page background / light text on dark */
+    --blush:          #eccaca;   /* signature pink — nav links, accents */
+    --blush-mid:      #e0bfbf;   /* scrollbar track */
+    --blush-deep:     #d4b5b5;   /* image placeholder, button pressed state */
+    --orchid:         #e6a8c8;   /* hero name */
+    --cocoa:          #5a3d38;   /* soft body copy */
+    --burgundy:       #510f0f;   /* testimonials background */
+    --crimson:        #7f1d1d;   /* accent borders, errors, hover states */
+    --crimson-bright: #8b1a16;   /* text-link hover */
+    --brick:          #c6302c;   /* project card tint base */
+    --sand:           #e0d8ce;   /* photo tile placeholder */
+    --parchment:      #f5f0e8;   /* contact form card */
+    --white:          #fff;      /* lightbox controls */
+
+    /* ---- Derived tints & shadows (built from the palette above) ---- */
+    --blush-muted:      color-mix(in srgb, var(--blush) 65%, transparent);   /* testimonial citation */
+    --blush-dim:        color-mix(in srgb, var(--blush) 30%, transparent);   /* inactive carousel dot */
+    --blush-faint:      color-mix(in srgb, var(--blush) 15%, transparent);   /* carousel arrow hover */
+    --blush-wash:       color-mix(in srgb, var(--blush) 35%, transparent);   /* form success background */
+    --blush-glow:       color-mix(in srgb, var(--blush) 40%, transparent);   /* input focus ring */
+    --cream-muted:      color-mix(in srgb, var(--cream) 45%, transparent);   /* footer copyright */
+    --brick-tint:       color-mix(in srgb, var(--brick) 4%, transparent);    /* project cards */
+    --crimson-tint:     color-mix(in srgb, var(--crimson) 8%, transparent);  /* form error background */
+    --crimson-border:   color-mix(in srgb, var(--crimson) 25%, transparent); /* form error border */
+    --espresso-muted:   color-mix(in srgb, var(--espresso) 45%, transparent);/* inactive filter button */
+    --espresso-glass:   color-mix(in srgb, var(--espresso) 70%, transparent);/* "View" button on photos */
+    --border-subtle:    color-mix(in srgb, var(--espresso) 14%, transparent);/* learn-more card border */
+    --border-input:     color-mix(in srgb, var(--espresso) 20%, transparent);/* form field border */
+    --shadow-soft:      color-mix(in srgb, var(--espresso) 8%, transparent);
+    --shadow-form:      color-mix(in srgb, var(--espresso) 7%, transparent);
+    --shadow-card:      color-mix(in srgb, var(--espresso) 12%, transparent);
+    --shadow-btn:       color-mix(in srgb, black 20%, transparent);
+    --shadow-drawer:    color-mix(in srgb, black 25%, transparent);
+    --shadow-photo:     color-mix(in srgb, black 60%, transparent);          /* lightbox image */
+    --scrim:            color-mix(in srgb, black 90%, transparent);          /* lightbox backdrop */
+    --white-faint:      color-mix(in srgb, var(--white) 8%, transparent);    /* lightbox button */
+    --white-soft:       color-mix(in srgb, var(--white) 18%, transparent);   /* lightbox button hover */
+    --white-border:     color-mix(in srgb, var(--white) 22%, transparent);   /* lightbox button border */
+}
+
+/* ========================================
    ANIMATIONS
    ======================================== */
    @keyframes fadeIn {
@@ -17,8 +67,8 @@
 
 body {
     font-family: "Source Sans 3", sans-serif;
-    background-color: #3E2723;
-    color: #3E2723;
+    background-color: var(--espresso);
+    color: var(--espresso);
     line-height: 1.5;
 }
 img { display: block; }
@@ -29,7 +79,7 @@ ul  { list-style: none; padding: 0; margin: 0; }
    NAVIGATION
    ======================================== */
 .navbar {
-    background-color: #3E2723;
+    background-color: var(--espresso);
     padding: 1rem 2rem;
     height: 72px;
     display: flex;
@@ -42,11 +92,11 @@ ul  { list-style: none; padding: 0; margin: 0; }
 .navbar-brand {
     font-family: "Xanh Mono", monospace;
     font-size: clamp(20px, 2.5vw, 28px);
-    color: #eccaca;
+    color: var(--blush);
     transition: color 0.3s ease;
     white-space: nowrap;
 }
-.navbar-brand:hover { color: #ECEAE2; }
+.navbar-brand:hover { color: var(--cream); }
 
 .nav-menu {
     display: flex;
@@ -57,7 +107,7 @@ ul  { list-style: none; padding: 0; margin: 0; }
 .nav-menu a {
     font-family: "Source Sans 3", sans-serif;
     font-size: 16px;
-    color: #eccaca;
+    color: var(--blush);
     position: relative;
     padding-bottom: 2px;
     transition: color 0.25s ease;
@@ -67,13 +117,13 @@ ul  { list-style: none; padding: 0; margin: 0; }
     position: absolute;
     left: 0; bottom: 0;
     width: 100%; height: 2px;
-    background-color: #eccaca;
+    background-color: var(--blush);
     transform: scaleX(0);
     transition: transform 280ms ease;
 }
-.nav-menu a:hover        { color: #ECEAE2; }
+.nav-menu a:hover        { color: var(--cream); }
 .nav-menu a:hover::after { transform: scaleX(1); }
-.nav-active              { color: #ECEAE2 !important; }
+.nav-active              { color: var(--cream) !important; }
 .nav-active::after       { transform: scaleX(1) !important; }
 
 .nav-toggle {
@@ -89,7 +139,7 @@ ul  { list-style: none; padding: 0; margin: 0; }
 .nav-toggle span {
     display: block;
     width: 24px; height: 2px;
-    background-color: #eccaca;
+    background-color: var(--blush);
     transition: all 0.3s ease;
     border-radius: 2px;
 }
@@ -102,7 +152,7 @@ ul  { list-style: none; padding: 0; margin: 0; }
    ======================================== */
 main {
     margin-top: 72px;
-    background-color: #eceae2;
+    background-color: var(--cream);
 }
 .main-container {
     padding: 10px 30px;
@@ -119,7 +169,7 @@ main {
 .gallery-title {
     font-family: "Xanh Mono", monospace;
     font-size: clamp(32px, 5vw, 56px);
-    color: #3E2723;
+    color: var(--espresso);
     padding: 10px 0;
     line-height: 1.1;
 }
@@ -139,7 +189,7 @@ main {
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(62,39,35,0.45);
+    color: var(--espresso-muted);
     background: transparent;
     border: none;
     border-bottom: 2px solid transparent;
@@ -147,8 +197,8 @@ main {
     cursor: pointer;
     transition: color 0.25s ease, border-color 0.25s ease;
 }
-.filter-btn:hover  { color: #3E2723; }
-.filter-btn.active { color: #3E2723; border-bottom-color: #3E2723; }
+.filter-btn:hover  { color: var(--espresso); }
+.filter-btn.active { color: var(--espresso); border-bottom-color: var(--espresso); }
 
 /* ========================================
    GALLERY GRID — square tiles
@@ -173,7 +223,7 @@ main {
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    background-color: #e0d8ce;
+    background-color: var(--sand);
 }
 .image-wrapper img {
     width: 100%;
@@ -201,9 +251,9 @@ main {
     pointer-events: auto;
 }
 .view-btn {
-    background-color: rgba(62,39,35,0.7);
-    border: 2px solid #eceae2;
-    color: #eceae2;
+    background-color: var(--espresso-glass);
+    border: 2px solid var(--cream);
+    color: var(--cream);
     padding: 8px 18px;
     border-radius: 4px;
     cursor: pointer;
@@ -214,7 +264,7 @@ main {
     text-transform: uppercase;
     transition: background 0.2s ease;
 }
-.view-btn:hover { background-color: #3E2723; }
+.view-btn:hover { background-color: var(--espresso); }
 
 /* ========================================
    LIGHTBOX
@@ -222,7 +272,7 @@ main {
 .overlay {
     position: fixed;
     inset: 0;
-    background-color: rgba(0,0,0,0.9);
+    background-color: var(--scrim);
     z-index: 1000;
     display: none;
     align-items: center;
@@ -242,7 +292,7 @@ main {
     position: absolute;
     top: -38px; right: 0;
     background: transparent;
-    color: #eccaca;
+    color: var(--blush);
     border: none;
     font-family: "Source Sans 3", sans-serif;
     font-size: 13px;
@@ -253,14 +303,14 @@ main {
     padding: 6px 10px;
     transition: color 0.25s ease;
 }
-.close-btn:hover { color: #fff; }
+.close-btn:hover { color: var(--white); }
 
 .nav-btn {
     position: absolute;
     top: 50%; transform: translateY(-50%);
-    background: rgba(255,255,255,0.08);
-    color: #fff;
-    border: 2px solid rgba(255,255,255,0.22);
+    background: var(--white-faint);
+    color: var(--white);
+    border: 2px solid var(--white-border);
     width: 48px; height: 48px;
     border-radius: 4px;
     cursor: pointer;
@@ -268,7 +318,7 @@ main {
     display: flex; align-items: center; justify-content: center;
     transition: background 0.2s ease;
 }
-.nav-btn:hover { background: rgba(255,255,255,0.18); }
+.nav-btn:hover { background: var(--white-soft); }
 .prev-btn { left: -64px; }
 .next-btn { right: -64px; }
 
@@ -280,7 +330,7 @@ main {
     width: auto; height: auto;
     object-fit: contain;
     border-radius: 4px;
-    box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+    box-shadow: 0 12px 48px var(--shadow-photo);
     transition: opacity 0.2s ease;
 }
 .overlay-image.transitioning { opacity: 0; }
@@ -289,9 +339,9 @@ main {
    FOOTER
    ======================================== */
 footer {
-    background-color: #3E2723;
+    background-color: var(--espresso);
     padding: 40px 20px 24px;
-    color: #eceae2;
+    color: var(--cream);
     text-align: center;
 }
 .footer-wrapper {
@@ -307,7 +357,7 @@ footer {
     padding: 10px 0;
 }
 #socials-links li a {
-    color: #eceae2;
+    color: var(--cream);
     font-size: 17px;
     position: relative;
     transition: color 0.25s ease;
@@ -317,7 +367,7 @@ footer {
     position: absolute;
     left: 0; bottom: -1px;
     width: 100%; height: 2px;
-    background-color: #eceae2;
+    background-color: var(--cream);
     transform: scaleX(0);
     transition: transform 280ms ease;
 }
@@ -326,11 +376,11 @@ footer {
     font-family: "Xanh Mono", monospace;
     font-size: clamp(36px, 7vw, 88px);
     line-height: 1;
-    color: #eceae2;
+    color: var(--cream);
 }
 .footer-copy {
     font-size: 13px;
-    color: rgba(236,234,226,0.45);
+    color: var(--cream-muted);
 }
 
 /* ========================================
@@ -351,14 +401,14 @@ footer {
         top: 72px; left: -100%;
         width: 70%; max-width: 280px;
         height: 100vh;
-        background-color: #3E2723;
+        background-color: var(--espresso);
         flex-direction: column;
         align-items: flex-start;
         padding: 2rem;
         gap: 2rem;
         transition: left 0.3s ease;
         z-index: 1000;
-        box-shadow: 4px 0 16px rgba(0,0,0,0.25);
+        box-shadow: 4px 0 16px var(--shadow-drawer);
         margin-left: 0;
     }
     .nav-menu.active { left: 0; }

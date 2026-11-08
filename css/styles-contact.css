@@ -1,4 +1,54 @@
 /* ========================================
+   CSS VARIABLES — COLOUR PALETTE
+   Every colour on the site lives here. Change a value once
+   and it updates everywhere. Add new colours here, never inline.
+   (This identical block is at the top of style-index.css,
+   style-photos.css and styles-contact.css — keep them in sync.)
+   ======================================== */
+   :root {
+    /* ---- Brand palette ---- */
+    --espresso:       #3E2723;   /* primary dark brown — nav, footer, buttons, headings */
+    --cream:          #ECEAE2;   /* page background / light text on dark */
+    --blush:          #eccaca;   /* signature pink — nav links, accents */
+    --blush-mid:      #e0bfbf;   /* scrollbar track */
+    --blush-deep:     #d4b5b5;   /* image placeholder, button pressed state */
+    --orchid:         #e6a8c8;   /* hero name */
+    --cocoa:          #5a3d38;   /* soft body copy */
+    --burgundy:       #510f0f;   /* testimonials background */
+    --crimson:        #7f1d1d;   /* accent borders, errors, hover states */
+    --crimson-bright: #8b1a16;   /* text-link hover */
+    --brick:          #c6302c;   /* project card tint base */
+    --sand:           #e0d8ce;   /* photo tile placeholder */
+    --parchment:      #f5f0e8;   /* contact form card */
+    --white:          #fff;      /* lightbox controls */
+
+    /* ---- Derived tints & shadows (built from the palette above) ---- */
+    --blush-muted:      color-mix(in srgb, var(--blush) 65%, transparent);   /* testimonial citation */
+    --blush-dim:        color-mix(in srgb, var(--blush) 30%, transparent);   /* inactive carousel dot */
+    --blush-faint:      color-mix(in srgb, var(--blush) 15%, transparent);   /* carousel arrow hover */
+    --blush-wash:       color-mix(in srgb, var(--blush) 35%, transparent);   /* form success background */
+    --blush-glow:       color-mix(in srgb, var(--blush) 40%, transparent);   /* input focus ring */
+    --cream-muted:      color-mix(in srgb, var(--cream) 45%, transparent);   /* footer copyright */
+    --brick-tint:       color-mix(in srgb, var(--brick) 4%, transparent);    /* project cards */
+    --crimson-tint:     color-mix(in srgb, var(--crimson) 8%, transparent);  /* form error background */
+    --crimson-border:   color-mix(in srgb, var(--crimson) 25%, transparent); /* form error border */
+    --espresso-muted:   color-mix(in srgb, var(--espresso) 45%, transparent);/* inactive filter button */
+    --espresso-glass:   color-mix(in srgb, var(--espresso) 70%, transparent);/* "View" button on photos */
+    --border-subtle:    color-mix(in srgb, var(--espresso) 14%, transparent);/* learn-more card border */
+    --border-input:     color-mix(in srgb, var(--espresso) 20%, transparent);/* form field border */
+    --shadow-soft:      color-mix(in srgb, var(--espresso) 8%, transparent);
+    --shadow-form:      color-mix(in srgb, var(--espresso) 7%, transparent);
+    --shadow-card:      color-mix(in srgb, var(--espresso) 12%, transparent);
+    --shadow-btn:       color-mix(in srgb, black 20%, transparent);
+    --shadow-drawer:    color-mix(in srgb, black 25%, transparent);
+    --shadow-photo:     color-mix(in srgb, black 60%, transparent);          /* lightbox image */
+    --scrim:            color-mix(in srgb, black 90%, transparent);          /* lightbox backdrop */
+    --white-faint:      color-mix(in srgb, var(--white) 8%, transparent);    /* lightbox button */
+    --white-soft:       color-mix(in srgb, var(--white) 18%, transparent);   /* lightbox button hover */
+    --white-border:     color-mix(in srgb, var(--white) 22%, transparent);   /* lightbox button border */
+}
+
+/* ========================================
    FONTS & KEYFRAMES
    ======================================== */
    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -11,8 +61,8 @@
    
    body {
        font-family: "Source Sans 3", sans-serif;
-       background-color: #3E2723;
-       color: #3E2723;
+       background-color: var(--espresso);
+       color: var(--espresso);
        line-height: 1.5;
    }
    
@@ -29,7 +79,7 @@
        position: fixed;
        top: 0; left: 0; right: 0;
        z-index: 100;
-       background-color: #3E2723;
+       background-color: var(--espresso);
        padding: 1rem 2rem;
        height: 72px;
        display: flex;
@@ -40,12 +90,12 @@
    .navbar-brand {
        font-family: "Xanh Mono", monospace;
        font-size: clamp(20px, 2.5vw, 28px);
-       color: #eccaca;
+       color: var(--blush);
        text-decoration: none;
        white-space: nowrap;
        transition: color 0.3s ease;
    }
-   .navbar-brand:hover { color: #ECEAE2; }
+   .navbar-brand:hover { color: var(--cream); }
    
    .nav-menu {
        display: flex;
@@ -57,7 +107,7 @@
    .nav-menu a {
        font-family: "Source Sans 3", sans-serif;
        font-size: 16px;
-       color: #eccaca;
+       color: var(--blush);
        text-decoration: none;
        position: relative;
        padding-bottom: 2px;
@@ -68,16 +118,16 @@
        position: absolute;
        left: 0; bottom: 0;
        width: 100%; height: 2px;
-       background-color: #eccaca;
+       background-color: var(--blush);
        transform: scaleX(0);
        transition: transform 280ms ease;
    }
-   .nav-menu a:hover           { color: #ECEAE2; }
+   .nav-menu a:hover           { color: var(--cream); }
    .nav-menu a:hover::after    { transform: scaleX(1); }
    
    /* Active page indicator */
    .nav-active {
-       color: #ECEAE2 !important;
+       color: var(--cream) !important;
    }
    .nav-active::after {
        transform: scaleX(1) !important;
@@ -97,7 +147,7 @@
    .nav-toggle span {
        display: block;
        width: 24px; height: 2px;
-       background-color: #eccaca;
+       background-color: var(--blush);
        transition: all 0.3s ease;
        border-radius: 2px;
    }
@@ -111,10 +161,10 @@
       ======================================== */
 
     .main{
-        background-color: #eceae2;
+        background-color: var(--cream);
     }
    .contact-wrapper {
-        background-color: #eceae2;
+        background-color: var(--cream);
        display: flex;
        flex-direction: row;
        align-items: flex-start;
@@ -140,16 +190,16 @@
        font-family: "Xanh Mono", monospace;
        font-size: clamp(40px, 6vw, 80px);
        line-height: 1.05;
-       color: #3E2723;
+       color: var(--espresso);
    }
    .contact-heading em {
-       color: #eccaca;
+       color: var(--blush);
        font-style: italic;
    }
    
    .contact-sub {
        font-size: clamp(15px, 1.5vw, 18px);
-       color: #5a3d38;
+       color: var(--cocoa);
        line-height: 1.7;
        max-width: 380px;
    }
@@ -171,9 +221,11 @@
        width: 20px; height: 20px;
        flex-shrink: 0;
    }
+   .contact-detail-item svg:not(.learn-heart) { stroke: var(--blush); }
+   .contact-detail-item .learn-heart path     { fill: var(--blush); }
    .contact-detail-item a {
        font-size: 15px;
-       color: #3E2723;
+       color: var(--espresso);
        text-decoration: none;
        position: relative;
        padding-bottom: 1px;
@@ -184,11 +236,11 @@
        position: absolute;
        left: 0; bottom: 0;
        width: 100%; height: 1px;
-       background-color: #3E2723;
+       background-color: var(--espresso);
        transform: scaleX(0);
        transition: transform 280ms ease;
    }
-   .contact-detail-item a:hover            { color: #7f1d1d; }
+   .contact-detail-item a:hover            { color: var(--crimson); }
    .contact-detail-item a:hover::after     { transform: scaleX(1); }
    
    /* ========================================
@@ -196,10 +248,10 @@
       ======================================== */
    .contact-right {
        flex: 1.1;
-       background-color: #f5f0e8;
+       background-color: var(--parchment);
        border-radius: 12px;
        padding: 2.5rem 2.5rem 2rem;
-       box-shadow: 0 4px 24px rgba(62,39,35,0.07);
+       box-shadow: 0 4px 24px var(--shadow-form);
    }
    
    /* Field groups */
@@ -216,16 +268,16 @@
        font-weight: 700;
        letter-spacing: 0.1em;
        text-transform: uppercase;
-       color: #3E2723;
+       color: var(--espresso);
    }
    
    .field-group input,
    .field-group textarea {
        font-family: "Source Sans 3", sans-serif;
        font-size: 15px;
-       color: #3E2723;
-       background-color: #ECEAE2;
-       border: 2px solid rgba(62,39,35,0.2);
+       color: var(--espresso);
+       background-color: var(--cream);
+       border: 2px solid var(--border-input);
        border-radius: 6px;
        padding: 10px 14px;
        width: 100%;
@@ -240,19 +292,19 @@
    
    .field-group input:focus,
    .field-group textarea:focus {
-       border-color: #3E2723;
-       box-shadow: 0 0 0 3px rgba(236, 202, 202, 0.4);
+       border-color: var(--espresso);
+       box-shadow: 0 0 0 3px var(--blush-glow);
    }
    
    /* Validation error state */
    .field-group input.invalid,
    .field-group textarea.invalid {
-       border-color: #7f1d1d;
+       border-color: var(--crimson);
    }
    
    .field-error {
        font-size: 12px;
-       color: #7f1d1d;
+       color: var(--crimson);
        display: none;
    }
    .field-error.visible { display: block; }
@@ -274,14 +326,14 @@
    .form-banner svg { width: 18px; height: 18px; flex-shrink: 0; }
    
    .form-success {
-       background-color: rgba(236, 202, 202, 0.35);
-       color: #3E2723;
-       border: 1px solid #eccaca;
+       background-color: var(--blush-wash);
+       color: var(--espresso);
+       border: 1px solid var(--blush);
    }
    .form-error {
-       background-color: rgba(127, 29, 29, 0.08);
-       color: #7f1d1d;
-       border: 1px solid rgba(127,29,29,0.25);
+       background-color: var(--crimson-tint);
+       color: var(--crimson);
+       border: 1px solid var(--crimson-border);
    }
    
    /* ========================================
@@ -290,9 +342,9 @@
    .submit-btn {
        width: 100%;
        padding: 13px 24px;
-       background-color: #3E2723;
-       color: #eccaca;
-       border: 2px solid #3E2723;
+       background-color: var(--espresso);
+       color: var(--blush);
+       border: 2px solid var(--espresso);
        border-radius: 6px;
        font-family: "Source Sans 3", sans-serif;
        font-size: 15px;
@@ -303,9 +355,9 @@
        overflow: hidden;
    }
    .submit-btn:hover:not(:disabled) {
-       background-color: #eccaca;
-       color: #3E2723;
-       border-color: #3E2723;
+       background-color: var(--blush);
+       color: var(--espresso);
+       border-color: var(--espresso);
    }
    .submit-btn:disabled {
        opacity: 0.65;
@@ -321,9 +373,9 @@
       FOOTER — copied 1:1 from style-index.css
       ======================================== */
    footer {
-       background-color: #3E2723;
+       background-color: var(--espresso);
        padding: 40px 20px 24px;
-       color: #eceae2;
+       color: var(--cream);
        text-align: center;
    }
    
@@ -342,7 +394,7 @@
    }
    
    #socials-links li a {
-       color: #eceae2;
+       color: var(--cream);
        font-size: 17px;
        text-decoration: none;
        position: relative;
@@ -353,7 +405,7 @@
        position: absolute;
        left: 0; bottom: -1px;
        width: 100%; height: 2px;
-       background-color: #eceae2;
+       background-color: var(--cream);
        transform: scaleX(0);
        transition: transform 280ms ease;
    }
@@ -363,12 +415,12 @@
        font-family: "Xanh Mono", monospace;
        font-size: clamp(36px, 7vw, 88px);
        line-height: 1;
-       color: #eceae2;
+       color: var(--cream);
    }
    
    .footer-copy {
        font-size: 13px;
-       color: rgba(236,234,226,0.45);
+       color: var(--cream-muted);
        margin: 0;
    }
    
@@ -393,14 +445,14 @@
           width: 100%; 
           max-width: 400px; /* Increased max-width */
           height: 100vh;
-          background-color: #3E2723;
+          background-color: var(--espresso);
           flex-direction: column;
           align-items: flex-start;
           padding: 2rem;
           gap: 2rem;
           transition: left 0.3s ease;
           z-index: 1000;
-          box-shadow: 4px 0 16px rgba(0,0,0,0.25);
+          box-shadow: 4px 0 16px var(--shadow-drawer);
           margin-left: 0;
      }
      .nav-menu.active  { left: 0; }

@@ -1,4 +1,98 @@
 // ========================================
+// PRELOADER (load screen)
+// Brown bg fades in → headshot fades up → ACTOR / MODEL / WRITER / CREATOR
+// typed one at a time → content fades → curtain lifts → landing page animates in.
+// The landing page's own animations are held (see .is-loading in the CSS) and
+// the scroll-reveal observer waits for `siteReady`, so nothing is lost.
+// ========================================
+const siteReady = new Promise(resolve => {
+  if (!document.documentElement.classList.contains('is-loading')) return resolve();
+  document.addEventListener('preloader:done', resolve, { once: true });
+});
+
+(function initPreloader() {
+  const root    = document.documentElement;
+  const overlay = document.getElementById('preloader');
+  if (!overlay) return;
+  if (!root.classList.contains('is-loading')) { overlay.remove(); return; }
+
+  // ---- Tweak timings here (milliseconds) ----
+  const CONFIG = {
+    photoDelay:   650,   // wait after load so the brown bg fade (0.7s in CSS) finishes first
+    photoFade:    800,   // headshot fade-up length (matches CSS transition)
+    caretLead:    180,   // caret blinks on a line this long before typing starts
+    typeSpeed:    80,    // per letter
+    linePause:    250,   // pause after a title finishes, before the next one begins
+    hold:         900,   // everything stays on screen this long after "CREATOR"
+    contentOut:   500,   // headshot + titles fade length (matches CSS)
+    overlayOut:   700,   // brown curtain fade length (matches CSS)
+    releaseAfter: 250,   // after the curtain starts lifting, landing-page animations begin
+  };
+
+  const wait   = ms => new Promise(r => setTimeout(r, ms));
+  const photo  = overlay.querySelector('.preloader-photo');
+  const lines  = Array.from(overlay.querySelectorAll('.preloader-title'));
+  let skipped = false, leaving = false;
+
+  // Make sure the headshot and the Xanh Mono font are ready (capped so we never hang)
+  function assetsReady() {
+    const img  = photo && photo.decode ? photo.decode().catch(() => {}) : Promise.resolve();
+    const font = document.fonts && document.fonts.load
+      ? document.fonts.load('italic 1em "Xanh Mono"').catch(() => {}) : Promise.resolve();
+    return Promise.race([Promise.all([img, font]), wait(3000)]);
+  }
+
+  async function typeLine(li) {
+    const text  = li.dataset.text;
+    const typed = li.querySelector('.pt-typed');
+    const rest  = li.querySelector('.pt-rest');
+    li.classList.add('typing');
+    await wait(CONFIG.caretLead);
+    for (let i = 1; i <= text.length; i++) {
+      if (skipped) return;
+      typed.textContent = text.slice(0, i);
+      rest.textContent  = text.slice(i);
+      await wait(CONFIG.typeSpeed);
+    }
+    li.classList.remove('typing');
+  }
+
+  function leave() {
+    if (leaving) return;
+    leaving = true;
+    overlay.classList.add('content-out');                       // 1. photo + titles fade
+    setTimeout(() => {
+      overlay.classList.add('leaving');                         // 2. brown curtain lifts
+      setTimeout(() => {
+        root.classList.remove('is-loading');                    // 3. landing page animations start
+        document.dispatchEvent(new Event('preloader:done'));
+      }, CONFIG.releaseAfter);
+      setTimeout(() => overlay.remove(), CONFIG.overlayOut + 50);
+    }, CONFIG.contentOut);
+  }
+
+  // Click / tap anywhere to skip
+  overlay.addEventListener('click', () => { skipped = true; leave(); });
+
+  (async function run() {
+    await assetsReady();
+    await wait(CONFIG.photoDelay);
+    if (skipped) return;
+    photo.classList.add('show');
+    await wait(CONFIG.photoFade + 100);
+    for (const li of lines) {            // strictly one after another
+      if (skipped) return;
+      await typeLine(li);
+      await wait(CONFIG.linePause);
+    }
+    if (skipped) return;
+    await wait(CONFIG.hold);
+    leave();
+  })();
+})();
+
+
+// ========================================
 // SCROLL REVEAL
 // ========================================
 (function initScrollReveal() {
@@ -6,7 +100,7 @@
   if (!els.length) return;
 
   if (!('IntersectionObserver' in window)) {
-      els.forEach(el => el.classList.add('revealed'));
+      siteReady.then(() => els.forEach(el => el.classList.add('revealed')));
       return;
   }
 
@@ -19,7 +113,7 @@
       });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  els.forEach(el => observer.observe(el));
+  siteReady.then(() => els.forEach(el => observer.observe(el)));
 })();
 
 

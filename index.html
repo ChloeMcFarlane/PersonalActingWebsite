@@ -8,12 +8,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/css/style-index.css" />
+    <link rel="stylesheet" href="/css/style-index.css?v=3" />
+    <!-- Load screen: switch it on before first paint so the page never flashes.
+         Skipped for people who prefer reduced motion. The timeout is a failsafe. -->
+    <script>
+        (function () {
+            var root = document.documentElement;
+            if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            root.classList.add('is-loading');
+            setTimeout(function () {
+                if (root.classList.contains('is-loading')) {
+                    root.classList.remove('is-loading');
+                    document.dispatchEvent(new Event('preloader:done'));
+                }
+            }, 15000);
+        })();
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Xanh+Mono:ital@0;1&display=swap');
     </style>
 </head>
 <body>
+
+    <!-- ===================== LOAD SCREEN ===================== -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="preloader-inner">
+            <img class="preloader-photo" src="/src/Headshot2.jpg" alt="" fetchpriority="high">
+            <ul class="preloader-titles">
+                <li class="preloader-title" data-text="ACTOR"><span class="pt-typed"></span><span class="pt-caret"></span><span class="pt-rest">ACTOR</span></li>
+                <li class="preloader-title" data-text="MODEL"><span class="pt-typed"></span><span class="pt-caret"></span><span class="pt-rest">MODEL</span></li>
+                <li class="preloader-title" data-text="WRITER"><span class="pt-typed"></span><span class="pt-caret"></span><span class="pt-rest">WRITER</span></li>
+                <li class="preloader-title" data-text="CREATOR"><span class="pt-typed"></span><span class="pt-caret"></span><span class="pt-rest">CREATOR</span></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- ===================== NAV ===================== -->
     <header>
@@ -56,6 +84,7 @@
                     <span class="role-item">Print Model</span>
                 </div>
                 <div class="dir-buttons">
+                    <a id="reel-link" href="https://youtu.be/RJOUPXM-Y_o" target="_blank" rel="noopener">Watch My Reel</a>
                     <a id="showcase-link" href="https://www.bu.edu/cfa/theatre/showcase/chloe-mcfarlane/"> Showcase Link</a>
                     <a id="hero-headshot-resume" href="/src/ChloeMcFarlaneResume.pdf"> Headshot & Resume</a>
                 </div>
@@ -87,11 +116,11 @@
 
                 <div class="testimonial-card active">
                     <div class="t-stars">
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
                     </div>
                     <blockquote>"Sensational."</blockquote>
                     <cite>— Theatre Mirror</cite>
@@ -99,11 +128,11 @@
 
                 <div class="testimonial-card">
                     <div class="t-stars">
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
                     </div>
                     <blockquote>"Shakespeare is about mastering the language while remaining emotionally available and alive. In this talented company, first-rate work abounds — and no one does that better than McFarlane."</blockquote>
                     <cite>— Broadway World</cite>
@@ -111,11 +140,11 @@
 
                 <div class="testimonial-card">
                     <div class="t-stars">
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
                     </div>
                     <blockquote>"wonderfully dramatic and fantastically skillful"</blockquote>
                     <cite>— Wbur</cite>
@@ -123,11 +152,11 @@
 
                 <div class="testimonial-card">
                     <div class="t-stars">
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
-                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z" fill="#ECCACA"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
+                        <svg viewBox="0 0 48 48"><path d="M11.65 44L14.9 29.95L4 20.5L18.4 19.25L24 6L29.6 19.25L44 20.5L33.1 29.95L36.35 44L24 36.55Z"/></svg>
                     </div>
                     <blockquote>"Spoiled, melodramatic, and FUNNY!  She offers us a lifeline to the wisdom and warmth of the source material"</blockquote>
                     <cite>— Joyce's Choices</cite>
@@ -138,7 +167,7 @@
             <!-- Controls: arrow · dots · arrow -->
             <div class="testimonials-controls">
                 <button class="t-btn" id="tPrev" aria-label="Previous">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ECCACA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
                 </button>
                 <div class="t-dots">
                     <button class="t-dot active" data-index="0" aria-label="Testimonial 1"></button>
@@ -147,7 +176,7 @@
                     <button class="t-dot" data-index="3" aria-label="Testimonial 4"></button>
                 </div>
                 <button class="t-btn" id="tNext" aria-label="Next">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ECCACA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
                 </button>
             </div>
         </div>
@@ -194,6 +223,10 @@
                     </svg>
                 </button>
             </div>
+
+            <div class="work-cta">
+                <a href="photos.html" class="btn btn-primary">View All Photos</a>
+            </div>
         </div>
 
         <!-- ===================== PROJECTS =====================
@@ -211,10 +244,14 @@
                 </section>
             </div>
 
+            <!-- UPCOMING PROJECTS — nothing coming up? Either delete this whole
+                 <div class="whats-next"> block, or just add the `hidden` attribute:
+                 <div class="whats-next" hidden>. "Past Projects" will then centre
+                 itself automatically. -->
             <div class="whats-next">
                 <section>
                     <header>Upcoming Projects</header>
-                    <p>Catch me live in Concert Theare Work's ode to <em>Copeland & Twain</em>. A work that marries Aaron Copland and Mark Twain to celebrate America's 250th Birthday. Grab a ticket before they sell out!</p>
+                    <p>Catch me live in Concert Theatre Work's ode to <em>Copeland & Twain</em>. A work that marries Aaron Copland and Mark Twain to celebrate America's 250th Birthday. Grab a ticket before they sell out!</p>
                     <a href="https://www.mso.org/concerts/copland-and-twain/" class="btn btn-primary">Get Tickets</a>
                 </section>
             </div>
@@ -228,7 +265,7 @@
                 <a href="../src/ChloeMcFarlaneResume.pdf" target="_blank">
                 <div class="learn-card scroll-reveal scroll-reveal-up" data-delay="0">
                     <svg class="learn-heart" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#eccaca"/>
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                     </svg>
                     <h5>Headshot &amp; Resume</h5>
                     <p>Headshots by Carrey Sheffield.</p>
@@ -238,7 +275,7 @@
                 <a href="photos.html">
                 <div class="learn-card scroll-reveal scroll-reveal-up" data-delay="100">
                     <svg class="learn-heart" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#eccaca"/>
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                     </svg>
                     <h5>Photos</h5>
                     <p>Check out production photos here.</p>
@@ -248,7 +285,7 @@
                 <a href="contact.html">
                 <div class="learn-card scroll-reveal scroll-reveal-up" data-delay="200">
                     <svg class="learn-heart" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#eccaca"/>
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                     </svg>
                     <h5>Get Connected</h5>
                     <p>Want to get in touch directly? Let's connect!</p>
@@ -274,6 +311,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous" defer></script>
-    <script src="/js/index.js" defer></script>
+    <script src="/js/index.js?v=3" defer></script>
 </body>
 </html>

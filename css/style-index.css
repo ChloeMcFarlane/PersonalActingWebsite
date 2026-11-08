@@ -1,4 +1,54 @@
 /* ========================================
+   CSS VARIABLES — COLOUR PALETTE
+   Every colour on the site lives here. Change a value once
+   and it updates everywhere. Add new colours here, never inline.
+   (This identical block is at the top of style-index.css,
+   style-photos.css and styles-contact.css — keep them in sync.)
+   ======================================== */
+   :root {
+    /* ---- Brand palette ---- */
+    --espresso:       #3E2723;   /* primary dark brown — nav, footer, buttons, headings */
+    --cream:          #ECEAE2;   /* page background / light text on dark */
+    --blush:          #eccaca;   /* signature pink — nav links, accents */
+    --blush-mid:      #e0bfbf;   /* scrollbar track */
+    --blush-deep:     #d4b5b5;   /* image placeholder, button pressed state */
+    --orchid:         #e6a8c8;   /* hero name */
+    --cocoa:          #5a3d38;   /* soft body copy */
+    --burgundy:       #510f0f;   /* testimonials background */
+    --crimson:        #7f1d1d;   /* accent borders, errors, hover states */
+    --crimson-bright: #8b1a16;   /* text-link hover */
+    --brick:          #c6302c;   /* project card tint base */
+    --sand:           #e0d8ce;   /* photo tile placeholder */
+    --parchment:      #f5f0e8;   /* contact form card */
+    --white:          #fff;      /* lightbox controls */
+
+    /* ---- Derived tints & shadows (built from the palette above) ---- */
+    --blush-muted:      color-mix(in srgb, var(--blush) 65%, transparent);   /* testimonial citation */
+    --blush-dim:        color-mix(in srgb, var(--blush) 30%, transparent);   /* inactive carousel dot */
+    --blush-faint:      color-mix(in srgb, var(--blush) 15%, transparent);   /* carousel arrow hover */
+    --blush-wash:       color-mix(in srgb, var(--blush) 35%, transparent);   /* form success background */
+    --blush-glow:       color-mix(in srgb, var(--blush) 40%, transparent);   /* input focus ring */
+    --cream-muted:      color-mix(in srgb, var(--cream) 45%, transparent);   /* footer copyright */
+    --brick-tint:       color-mix(in srgb, var(--brick) 4%, transparent);    /* project cards */
+    --crimson-tint:     color-mix(in srgb, var(--crimson) 8%, transparent);  /* form error background */
+    --crimson-border:   color-mix(in srgb, var(--crimson) 25%, transparent); /* form error border */
+    --espresso-muted:   color-mix(in srgb, var(--espresso) 45%, transparent);/* inactive filter button */
+    --espresso-glass:   color-mix(in srgb, var(--espresso) 70%, transparent);/* "View" button on photos */
+    --border-subtle:    color-mix(in srgb, var(--espresso) 14%, transparent);/* learn-more card border */
+    --border-input:     color-mix(in srgb, var(--espresso) 20%, transparent);/* form field border */
+    --shadow-soft:      color-mix(in srgb, var(--espresso) 8%, transparent);
+    --shadow-form:      color-mix(in srgb, var(--espresso) 7%, transparent);
+    --shadow-card:      color-mix(in srgb, var(--espresso) 12%, transparent);
+    --shadow-btn:       color-mix(in srgb, black 20%, transparent);
+    --shadow-drawer:    color-mix(in srgb, black 25%, transparent);
+    --shadow-photo:     color-mix(in srgb, black 60%, transparent);          /* lightbox image */
+    --scrim:            color-mix(in srgb, black 90%, transparent);          /* lightbox backdrop */
+    --white-faint:      color-mix(in srgb, var(--white) 8%, transparent);    /* lightbox button */
+    --white-soft:       color-mix(in srgb, var(--white) 18%, transparent);   /* lightbox button hover */
+    --white-border:     color-mix(in srgb, var(--white) 22%, transparent);   /* lightbox button border */
+}
+
+/* ========================================
    FONTS
    ======================================== */
 /* Source Sans 3 + Xanh Mono loaded via @import in <head> */
@@ -27,8 +77,8 @@
    
    body {
        font-family: "Source Sans 3", sans-serif;
-       background-color: #ECEAE2;
-       color: #3E2723;
+       background-color: var(--cream);
+       color: var(--espresso);
        line-height: 1.5;
    }
    
@@ -38,6 +88,106 @@
    ul   { list-style: none; padding: 0; margin: 0; }
    main { margin-top: 72px; }
    
+/* ========================================
+   PRELOADER (load screen)
+   Sequence: brown bg fades in → headshot fades up → titles are typed
+   one by one → content fades → curtain lifts to reveal the page.
+   Timings live in index.js (CONFIG); the 0.7s values here must match.
+   ======================================== */
+html.is-loading,
+html.is-loading body { overflow: hidden; }
+
+.preloader {
+    --pl-img: clamp(130px, min(28vw, 50vh), 340px);   /* headshot size — everything scales from this */
+    --pl-gap: clamp(20px, 4vw, 64px);                 /* space between headshot and titles */
+    --pl-pad: clamp(16px, 5vw, 64px);                 /* safe margin so nothing touches the screen edge */
+
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--espresso);
+    animation: pl-bg 0.7s ease both;
+}
+.is-loading .preloader,
+.preloader.leaving { display: flex; }
+
+.preloader.leaving {
+    pointer-events: none;
+    animation: pl-out 0.7s ease forwards;
+}
+
+.preloader-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--pl-gap);
+    padding: 0 var(--pl-pad);
+    max-width: 100%;
+    transition: opacity 0.5s ease;
+}
+.preloader.content-out .preloader-inner { opacity: 0; }
+
+/* Headshot — rounded square, same 8px radius as the hero image */
+.preloader-photo {
+    flex: 0 0 auto;
+    width: var(--pl-img);
+    height: var(--pl-img);
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.preloader-photo.show { opacity: 1; transform: translateY(0); }
+
+/* Titles — block is exactly as tall as the headshot, lines spaced evenly
+   top-to-bottom, font sized from the headshot so nothing can overflow. */
+.preloader-titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: var(--pl-img);
+    font-family: "Xanh Mono", monospace;
+    font-style: italic;
+    font-size: calc(var(--pl-img) / 6.2);
+    line-height: 1.2;
+    color: var(--orchid);
+    white-space: nowrap;
+}
+.preloader-title { height: 1.2em; }
+
+.pt-typed {
+    text-decoration: underline;
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 0.18em;
+}
+.pt-rest { visibility: hidden; }   /* untyped letters hold their space → zero layout shift */
+
+.pt-caret {
+    display: inline-block;
+    width: 0;
+    height: 1em;
+    margin-right: -0.08em;
+    border-right: 0.08em solid var(--orchid);
+    vertical-align: -0.12em;
+    visibility: hidden;
+}
+.typing .pt-caret { visibility: visible; animation: pl-blink 0.8s steps(1) infinite; }
+
+/* Hold the landing page's own entrance animations until the curtain lifts */
+.is-loading .greeting,
+.is-loading .hero-name,
+.is-loading .role-item,
+.is-loading .dir-buttons a { animation-play-state: paused; }
+
+@keyframes pl-bg    { from { background-color: var(--cream); } to { background-color: var(--espresso); } }
+@keyframes pl-out   { to   { opacity: 0; } }
+@keyframes pl-blink { 50%  { opacity: 0; } }
+
    /* ========================================
       NAVIGATION
       — Brand centered absolutely, links RIGHT, hamburger LEFT
@@ -47,7 +197,7 @@
        position: fixed;
        top: 0; left: 0; right: 0;
        z-index: 100;
-       background-color: #3E2723;
+       background-color: var(--espresso);
        padding: 1rem 2rem;
        height: 72px;
        display: flex;
@@ -59,13 +209,13 @@
    .navbar-brand {
        font-family: "Xanh Mono", monospace;
        font-size: clamp(20px, 2.5vw, 28px);
-       color: #eccaca;
+       color: var(--blush);
        text-decoration: none;
        white-space: nowrap;
        transition: color 0.3s ease;
        /* No absolute positioning — sits naturally on the left */
    }
-   .navbar-brand:hover { color: #ECEAE2; }
+   .navbar-brand:hover { color: var(--cream); }
    
    /* Links — right side, margin-left: auto creates the gap from brand */
    .nav-menu {
@@ -78,7 +228,7 @@
    .nav-menu a {
        font-family: "Source Sans 3", sans-serif;
        font-size: 16px;
-       color: #eccaca;
+       color: var(--blush);
        text-decoration: none;
        position: relative;
        padding-bottom: 2px;
@@ -90,11 +240,11 @@
        position: absolute;
        left: 0; bottom: 0;
        width: 100%; height: 2px;
-       background-color: #eccaca;
+       background-color: var(--blush);
        transform: scaleX(0);
        transition: transform 280ms ease;
    }
-   .nav-menu a:hover             { color: #ECEAE2; }
+   .nav-menu a:hover             { color: var(--cream); }
    .nav-menu a:hover::after      { transform: scaleX(1); }
    
    /* Hamburger — hidden on desktop, shown on mobile */
@@ -111,7 +261,7 @@
    .nav-toggle span {
        display: block;
        width: 24px; height: 2px;
-       background-color: #eccaca;
+       background-color: var(--blush);
        transition: all 0.3s ease;
        border-radius: 2px;
    }
@@ -128,7 +278,7 @@
        min-height: calc(100vh - 72px);
        max-width: 1600px;
        margin: 0 auto;
-       background-color: #ECEAE2;
+       background-color: var(--cream);
    }
    
    .hero-image {
@@ -159,7 +309,7 @@
    .greeting {
        font-size: clamp(16px, 2.5vw, 44px);
        font-weight: 500;
-       color: #3E2723;
+       color: var(--espresso);
        text-align: center;
        animation: fadeInUp 0.8s ease-out 0.3s both;
    }
@@ -168,7 +318,7 @@
        font-family: 'Xanh Mono', monospace;
        font-style: italic;
        font-size: clamp(26px, 5.5vw, 96px);
-       color: #e6a8c8;
+       color: var(--orchid);
        text-align: center;
        line-height: 1.1;
        animation: slideUpSlow 1.1s ease-out 0.6s both;
@@ -184,7 +334,7 @@
    
    .role-item {
        font-size: clamp(13px, 1.8vw, 30px);
-       color: #3E2723;
+       color: var(--espresso);
        white-space: nowrap;
        animation: stagger 0.6s ease-out both;
        transition: transform 0.3s ease;
@@ -202,7 +352,7 @@
        align-items: flex-start;
        gap: 5vw;
        padding: 10vh 8vw;
-       background-color: #ECEAE2;
+       background-color: var(--cream);
    }
    
    .headshot-title-wrapper { flex-shrink: 0; }
@@ -229,7 +379,7 @@
    .about section p {
        font-size: clamp(15px, 1.5vw, 20px);
        line-height: 1.75;
-       color: #5a3d38;
+       color: var(--cocoa);
        text-align: justify;
    }
    
@@ -240,7 +390,7 @@
       — Only transform + opacity animate → ZERO layout shift.
       ======================================== */
    .testimonials-section {
-       background-color: #7f1d1d;
+       background-color: var(--burgundy);
        padding: 56px 24px 40px;
        display: flex;
        flex-direction: column;
@@ -281,12 +431,13 @@
    
    .t-stars { display: flex; gap: 5px; }
    .t-stars svg { width: 26px; height: 26px; flex-shrink: 0; }
+   .t-stars svg path { fill: var(--blush); }
    
    .testimonial-card blockquote {
        font-family: "Source Sans 3", sans-serif;
        font-size: clamp(16px, 2.5vw, 22px);
        font-weight: 500;
-       color: #eccaca;
+       color: var(--blush);
        text-align: center;
        line-height: 1.5;
        font-style: normal;
@@ -296,7 +447,7 @@
    .testimonial-card cite {
        font-family: "Source Sans 3", sans-serif;
        font-size: clamp(12px, 1.2vw, 15px);
-       color: rgba(236, 202, 202, 0.65);
+       color: var(--blush-muted);
        letter-spacing: 0.1em;
        text-transform: uppercase;
        font-style: normal;
@@ -319,8 +470,8 @@
        transition: background 0.2s ease, transform 0.2s ease;
        padding: 0;
    }
-   .t-btn svg   { width: 24px; height: 24px; }
-   .t-btn:hover { background: rgba(236,202,202,0.15); transform: scale(1.1); }
+   .t-btn svg   { width: 24px; height: 24px; stroke: var(--blush); }
+   .t-btn:hover { background: var(--blush-faint); transform: scale(1.1); }
    .t-btn:active { transform: scale(0.92); }
    
    .t-dots { display: flex; gap: 7px; align-items: center; }
@@ -328,12 +479,12 @@
        width: 7px; height: 7px;
        border-radius: 50%;
        border: none;
-       background: rgba(236,202,202,0.3);
+       background: var(--blush-dim);
        cursor: pointer;
        padding: 0;
        transition: background 0.3s ease, transform 0.3s ease;
    }
-   .t-dot.active { background: #eccaca; transform: scale(1.35); }
+   .t-dot.active { background: var(--blush); transform: scale(1.35); }
    
    /* ========================================
       MY WORK — SCROLLING GALLERY
@@ -341,13 +492,13 @@
       ======================================== */
    .divider {
        padding: 40px 20px;
-       background-color: #eccaca;     /* Chloe's pink instead of Jordan's mauve */
+       background-color: var(--blush);     /* signature pink */
    }
    
    .my-work-title {
        font-family: "Xanh Mono", monospace;
        font-size: clamp(28px, 4vw, 42px);
-       color: #3E2723;
+       color: var(--espresso);
        margin-bottom: 30px;
    }
    
@@ -363,12 +514,12 @@
        scroll-behavior: smooth;
        padding: 20px 0;
        scrollbar-width: thin;
-       scrollbar-color: #3E2723 #e0bfbf;
+       scrollbar-color: var(--espresso) var(--blush-mid);
        -webkit-overflow-scrolling: touch;
    }
    .scroll-container::-webkit-scrollbar       { height: 6px; }
-   .scroll-container::-webkit-scrollbar-track { background: #e0bfbf; }
-   .scroll-container::-webkit-scrollbar-thumb { background: #3E2723; border-radius: 4px; }
+   .scroll-container::-webkit-scrollbar-track { background: var(--blush-mid); }
+   .scroll-container::-webkit-scrollbar-thumb { background: var(--espresso); border-radius: 4px; }
    
    .image-card {
        flex: 0 0 auto;
@@ -376,8 +527,8 @@
        height: 300px;
        border-radius: 12px;
        overflow: hidden;
-       background-color: #d4b5b5;
-       box-shadow: 0 4px 12px rgba(62, 39, 35, 0.12);
+       background-color: var(--blush-deep);
+       box-shadow: 0 4px 12px var(--shadow-card);
        position: relative;
    }
    
@@ -395,8 +546,8 @@
        top: 50%; left: 50%;
        transform: translate(-50%, -50%);
        width: 36px; height: 36px;
-       border: 3px solid #eceae2;
-       border-top-color: #7f1d1d;
+       border: 3px solid var(--cream);
+       border-top-color: var(--crimson);
        border-radius: 50%;
        animation: spin 0.9s linear infinite;
        pointer-events: none;
@@ -408,8 +559,8 @@
        position: absolute;
        top: 50%;
        transform: translateY(-50%);
-       background-color: #3E2723;
-       color: #eccaca;
+       background-color: var(--espresso);
+       color: var(--blush);
        border: none;
        width: 44px; height: 44px;
        border-radius: 50%;
@@ -418,12 +569,19 @@
        align-items: center; justify-content: center;
        transition: background 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
        z-index: 10;
-       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+       box-shadow: 0 2px 8px var(--shadow-btn);
    }
-   .scroll-btn:hover  { background-color: #7f1d1d; transform: translateY(-50%) scale(1.1); }
+   .scroll-btn:hover  { background-color: var(--crimson); transform: translateY(-50%) scale(1.1); }
    .scroll-btn.hidden { opacity: 0; pointer-events: none; }
    .scroll-btn-left   { left: 0; }
    .scroll-btn-right  { right: 0; }
+
+   /* Button under the gallery → photos page */
+   .work-cta {
+       display: flex;
+       justify-content: center;
+       margin-top: 24px;
+   }
    
    /* ========================================
       PROJECTS
@@ -435,30 +593,39 @@
        margin: 60px auto;
        padding: 0 20px;
        display: grid;
-       grid-template-columns: 1fr 1fr;
+       grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
        gap: 40px;
+   }
+
+   /* Only one card left (the other was deleted or has the `hidden`
+      attribute) → centre it at a comfortable reading width. */
+   .projects > :only-child,
+   .projects:has(> [hidden]) > :not([hidden]) {
+       width: 100%;
+       max-width: 720px;
+       margin-inline: auto;
    }
    
    .recently,
    .whats-next {
-       background-color: rgba(198, 48, 44, 0.04);
+       background-color: var(--brick-tint);
        padding: 40px;
        border-radius: 12px;
-       border-left: 4px solid #7f1d1d;
+       border-left: 4px solid var(--crimson);
    }
    
    .recently header,
    .whats-next header {
        font-family: "Xanh Mono", monospace;
        font-size: clamp(20px, 2.5vw, 28px);
-       color: #3E2723;
+       color: var(--espresso);
        margin-bottom: 12px;
    }
    
    .recently p,
    .whats-next p {
        font-size: clamp(14px, 1.4vw, 16px);
-       color: #5a3d38;
+       color: var(--cocoa);
        line-height: 1.7;
        margin-bottom: 20px;
    }
@@ -469,9 +636,9 @@
    .btn-primary {
        display: inline-block;
        padding: 11px 26px;
-       background-color: #3E2723;
-       color: #eccaca;
-       border: 2px solid #3E2723;
+       background-color: var(--espresso);
+       color: var(--blush);
+       border: 2px solid var(--espresso);
        border-radius: 4px;
        font-family: "Source Sans 3", sans-serif;
        font-size: 15px;
@@ -480,15 +647,15 @@
        transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
    }
    .btn-primary:hover {
-       background-color: #eccaca;
-       color: #3E2723;
-       border-color: #3E2723;
+       background-color: var(--blush);
+       color: var(--espresso);
+       border-color: var(--espresso);
    }
 
    .btn-primary:active {
-       background-color: #d4b5b5 !important;
-       border-color: #3E2723 !important;
-       color: #3E2723;
+       background-color: var(--blush-deep) !important;
+       border-color: var(--espresso) !important;
+       color: var(--espresso);
    }
 
    .dir-buttons{
@@ -504,24 +671,24 @@
    .dir-buttons a {
     width: 100%;
     margin: auto;
-    border: 2px solid #3E2723;
+    border: 2px solid var(--espresso);
     border-radius: 4px;
     font-family: "Source Sans 3", sans-serif;
     font-size: 16px;
     padding: 11px 26px;
-    background-color: #3E2723;
-    color: #eccaca;
+    background-color: var(--espresso);
+    color: var(--blush);
     animation: fadeInUp 0.8s cubic-bezier(0, 0, 0, 0.78) .9s both;
    }
 
    #showcase-link{
-    border: 3px solid #eccaca !important;
+    border: 3px solid var(--blush) !important;
    }
 
    .dir-buttons a:hover {
-    background-color: #eccaca;
-    color: #3E2723;
-    border-color: #3E2723;
+    background-color: var(--blush);
+    color: var(--espresso);
+    border-color: var(--espresso);
     transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
    }
    
@@ -530,13 +697,13 @@
       ======================================== */
    .learn-more-section {
        padding: 8vh 8vw;
-       background-color: #ECEAE2;
+       background-color: var(--cream);
    }
    
    .learn-more-title {
        font-family: "Xanh Mono", monospace;
        font-size: clamp(26px, 4vw, 52px);
-       color: #3E2723;
+       color: var(--espresso);
        margin-bottom: 2.5rem;
    }
    
@@ -548,13 +715,13 @@
    
    .learn-card {
        padding: 2rem;
-       border: 2px solid rgba(62,39,35,0.14);
+       border: 2px solid var(--border-subtle);
        border-radius: 8px;
        transition: border-color 0.25s ease, box-shadow 0.25s ease;
    }
    .learn-card:hover {
-       border-color: #3E2723;
-       box-shadow: 0 4px 16px rgba(62,39,35,0.08);
+       border-color: var(--espresso);
+       box-shadow: 0 4px 16px var(--shadow-soft);
    }
    
    /* Heart icon at top of each learn card */
@@ -565,6 +732,7 @@
        display: block;
        transition: transform 0.3s ease;
    }
+   .learn-heart path { fill: var(--blush); }
    .learn-card:hover .learn-heart {
        transform: scale(1.15);
    }
@@ -576,7 +744,7 @@
    }
    
    .learn-card h5 a {
-       color: #3E2723;
+       color: var(--espresso);
        text-decoration: none;
        position: relative;
    }
@@ -585,16 +753,16 @@
        position: absolute;
        left: 0; bottom: -2px;
        width: 100%; height: 2px;
-       background-color: #3E2723;
+       background-color: var(--espresso);
        transform: scaleX(0);
        transition: transform 280ms ease;
    }
-   .learn-card h5 a:hover       { color: #8b1a16; }
+   .learn-card h5 a:hover       { color: var(--crimson-bright); }
    .learn-card h5 a:hover::after { transform: scaleX(1); }
    
    .learn-card p {
        font-size: 15px;
-       color: #5a3d38;
+       color: var(--cocoa);
        line-height: 1.6;
    }
    
@@ -602,9 +770,9 @@
       FOOTER  (matches Jordan Berke's footer wrapper pattern)
       ======================================== */
    footer {
-       background-color: #3E2723;
+       background-color: var(--espresso);
        padding: 40px 20px 24px;
-       color: #eceae2;
+       color: var(--cream);
        text-align: center;
    }
    
@@ -623,7 +791,7 @@
    }
    
    #socials-links li a {
-       color: #eceae2;
+       color: var(--cream);
        font-size: 17px;
        text-decoration: none;
        position: relative;
@@ -634,7 +802,7 @@
        position: absolute;
        left: 0; bottom: -1px;
        width: 100%; height: 2px;
-       background-color: #eceae2;
+       background-color: var(--cream);
        transform: scaleX(0);
        transition: transform 280ms ease;
    }
@@ -644,12 +812,12 @@
        font-family: "Xanh Mono", monospace;
        font-size: clamp(36px, 7vw, 88px);
        line-height: 1;
-       color: #eceae2;
+       color: var(--cream);
    }
    
    .footer-copy {
        font-size: 13px;
-       color: rgba(236,234,226,0.45);
+       color: var(--cream-muted);
        margin: 0;
    }
    
@@ -675,14 +843,14 @@
            top: 72px; left: -100%;
            width: 70%; max-width: 280px;
            height: 100vh;
-           background-color: #3E2723;
+           background-color: var(--espresso);
            flex-direction: column;
            align-items: flex-start;
            padding: 2rem;
            gap: 2rem;
            transition: left 0.3s ease;
            z-index: 1000;
-           box-shadow: 4px 0 16px rgba(0,0,0,0.25);
+           box-shadow: 4px 0 16px var(--shadow-drawer);
            margin-left: 0;
        }
        .nav-menu.active { left: 0; }
